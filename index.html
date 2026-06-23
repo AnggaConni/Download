@@ -3,242 +3,900 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
+
     <title>Enterprise App Center</title>
     <meta name="title" content="Enterprise App Center">
     <meta name="description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
     <meta name="author" content="Angga Conni">
     <meta name="keywords" content="APK, Download, App Center, Repository, Android">
 
-    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anggaconni.github.io/Download/">
     <meta property="og:title" content="Enterprise App Center">
     <meta property="og:description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
-    <!-- Gambar otomatis menggunakan UI Avatars untuk Thumbnail Share -->
     <meta property="og:image" content="https://ui-avatars.com/api/?name=App+Center&background=2563eb&color=fff&size=512&font-size=0.33">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://anggaconni.github.io/Download/">
     <meta property="twitter:title" content="Enterprise App Center">
     <meta property="twitter:description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
     <meta property="twitter:image" content="https://ui-avatars.com/api/?name=App+Center&background=2563eb&color=fff&size=512&font-size=0.33">
 
-    <!-- Hardcoded SVG Favicon (No external file needed) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><path d=%22M30 45 L50 65 L70 45 M50 25 L50 65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/><line x1=%2230%22 y1=%2280%22 x2=%2270%22 y2=%2280%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><path d=%22M30 45 L50 65 L70 45 M50 25 L50 65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/><line x1=%2230%22 y1=%2280%22 x2=%2270%22 y2=%2280%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb', // Blue-600
-                        'primary-hover': '#1d4ed8', // Blue-700
-                        background: '#f8fafc', // Slate-50
-                        surface: '#ffffff',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <style>
-        body {
-            background-color: #f8fafc;
-            color: #0f172a;
-            /* Subtle background pattern for a professional touch */
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 24px 24px;
+        :root {
+            --primary:      #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent:       #6366f1;
+            --success:      #059669;
+            --warning:      #d97706;
+            --surface:      #ffffff;
+            --bg:           #eef2ff;
+            --border:       #e2e8f0;
+            --text-1:       #0f172a;
+            --text-2:       #475569;
+            --text-3:       #94a3b8;
         }
-        
-        /* Custom Light Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-1);
+            background-image:
+                radial-gradient(at 15% 10%, rgba(99,102,241,0.08) 0, transparent 55%),
+                radial-gradient(at 85% 5%,  rgba(37,99,235,0.07)  0, transparent 50%),
+                radial-gradient(at 50% 95%, rgba(99,102,241,0.05) 0, transparent 60%);
+            min-height: 100vh;
+        }
+
+        /* ── Typography ── */
+        .font-mono-data { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+        /* ── Shimmer skeleton ── */
+        @keyframes shimmer {
+            0%   { background-position: -900px 0; }
+            100% { background-position:  900px 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #dde4f2 25%, #e8edf8 50%, #dde4f2 75%);
+            background-size: 900px 100%;
+            animation: shimmer 1.6s ease-in-out infinite;
+            border-radius: 8px;
+        }
+
+        /* ── Fade-in ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.4s ease-out both; }
+
+        /* ── Card ── */
+        .app-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(37,99,235,0.13), 0 4px 12px rgba(0,0,0,0.07);
+            border-color: #bfdbfe;
+        }
+        .app-card .reveal-btn {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .app-card:hover .reveal-btn { opacity: 1; }
+
+        /* ── Download button ── */
+        .dl-btn {
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 700;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+            position: relative; overflow: hidden;
+        }
+        .dl-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+        }
+
+        /* ── Filter tab ── */
+        .ftab {
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid transparent;
+            color: var(--text-2);
+            background: transparent;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .ftab:hover  { background: #eff6ff; color: var(--primary); }
+        .ftab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* ── List row ── */
+        .list-row {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .list-row:hover {
+            box-shadow: 0 6px 18px rgba(37,99,235,0.09);
+            border-color: #bfdbfe;
+        }
+
+        /* ── Toast ── */
+        @keyframes slideIn  { from { transform: translateX(110%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(110%); opacity: 0; } }
+        .toast-in  { animation: slideIn  0.28s ease-out; }
+        .toast-out { animation: slideOut 0.28s ease-in forwards; }
+
+        /* ── NEW badge pulse ── */
+        @keyframes pulse-soft { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+        .badge-new { animation: pulse-soft 2.2s ease-in-out infinite; }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #c7d2e0; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        
-        .professional-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+        /* ── Kbd ── */
+        kbd {
+            background: #f1f5f9; border: 1px solid var(--border);
+            border-bottom-width: 2px; border-radius: 5px;
+            color: var(--text-3); font-size: 0.7rem; padding: 1px 5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ── Modal ── */
+        .modal-bg { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+        /* ── Stat card ── */
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* ── View toggle button ── */
+        .vtbtn {
+            padding: 8px 10px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .vtbtn.active { background: #eff6ff; color: var(--primary); }
+        .vtbtn:not(.active) { color: var(--text-3); }
+        .vtbtn:not(.active):hover { background: #f8fafc; color: var(--text-2); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
-<body class="min-h-screen font-sans antialiased selection:bg-blue-200 selection:text-blue-900 pb-20">
+<body class="pb-24 antialiased selection:bg-blue-200 selection:text-blue-900">
 
-    <!-- Navbar / Top Header (Optional for professional look) -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2 font-bold text-slate-800 text-lg tracking-tight">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                AppCenter
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════ -->
+<nav class="bg-white/90 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 h-15 flex items-center justify-between gap-4" style="height:60px">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-2.5 shrink-0">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-lg flex items-center justify-center shadow">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
             </div>
-            <div class="text-sm font-medium text-slate-500">
-                Internal Distribution
-            </div>
+            <span class="font-extrabold text-slate-800 text-lg tracking-tight">App<span class="text-blue-600">Center</span></span>
+            <span id="navBadge" class="hidden bg-blue-100 text-blue-700 text-[11px] font-bold px-2 py-0.5 rounded-full ml-0.5"></span>
         </div>
-    </nav>
 
-    <!-- Hero Header -->
-    <header class="pt-16 pb-12 px-6 text-center max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 animate-fade-in">
-            Software <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Repository</span>
-        </h1>
-        <p class="text-slate-500 text-lg mb-10 animate-fade-in" style="animation-delay: 0.1s;">
-            Access and download the latest verified builds securely from the automated CI/CD pipeline.
-        </p>
-
-        <!-- Search Bar -->
-        <div class="relative max-w-xl mx-auto animate-fade-in shadow-sm rounded-xl" style="animation-delay: 0.2s;">
-            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <!-- Right -->
+        <div class="flex items-center gap-4">
+            <div id="syncDot" class="hidden items-center gap-1.5 text-xs font-semibold text-emerald-600">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Live
             </div>
-            <input type="text" id="searchInput" placeholder="Search applications, packages, or versions..." 
-                class="w-full bg-white border border-slate-300 text-slate-900 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-slate-400">
+            <span class="text-xs text-slate-400 font-medium hidden sm:block">Internal Distribution</span>
         </div>
-    </header>
+    </div>
+</nav>
 
-    <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-6">
-        
-        <!-- Loading State -->
-        <div id="loadingState" class="flex flex-col items-center justify-center py-20">
-            <svg class="animate-spin h-10 w-10 text-blue-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<header class="pt-14 pb-8 px-5 text-center max-w-3xl mx-auto">
+
+    <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5 fade-up" style="animation-delay:.04s">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        Automated CI/CD · Cryptographically Verified
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4 fade-up leading-[1.1]" style="animation-delay:.08s">
+        Software <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-500">Repository</span>
+    </h1>
+    <p class="text-slate-500 text-base mb-8 fade-up max-w-md mx-auto leading-relaxed" style="animation-delay:.12s">
+        Download the latest verified APK builds. Every release is signed, tested, and published automatically.
+    </p>
+
+    <!-- Search -->
+    <div class="relative max-w-xl mx-auto fade-up" style="animation-delay:.16s">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
-            <p class="text-slate-500 font-medium">Syncing database...</p>
+        </div>
+        <input type="text" id="searchInput" placeholder="Search apps, packages, or versions…"
+            class="w-full bg-white border border-slate-300 text-slate-900 rounded-2xl pl-12 pr-16 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-slate-400 shadow-sm text-sm"
+            autocomplete="off" spellcheck="false">
+        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+            <kbd>/</kbd>
+        </div>
+    </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     STATS STRIP
+════════════════════════════════════════════ -->
+<div id="statsStrip" class="hidden max-w-7xl mx-auto px-5 mb-7">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+        <div class="stat-card p-4 text-center">
+            <p class="text-2xl font-black text-slate-900 font-mono-data" id="sTotalApps">—</p>
+            <p class="text-[11px] text-slate-500 font-semibold mt-0.5 uppercase tracking-wide">Applications</p>
         </div>
 
-        <!-- Fallback / Empty State -->
-        <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center animate-fade-in">
-            <div class="bg-slate-100 p-6 rounded-full mb-6 border border-slate-200">
-                <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+        <div class="stat-card p-4 text-center">
+            <p class="text-2xl font-black text-slate-900 font-mono-data" id="sTotalSize">—</p>
+            <p class="text-[11px] text-slate-500 font-semibold mt-0.5 uppercase tracking-wide">Repo Size</p>
+        </div>
+
+        <div class="stat-card p-4 text-center">
+            <p class="text-sm font-black text-slate-900 leading-tight" id="sLatest">—</p>
+            <p class="text-[11px] text-slate-500 font-semibold mt-0.5 uppercase tracking-wide">Latest Build</p>
+        </div>
+
+        <div class="stat-card p-4 text-center">
+            <div class="flex items-center justify-center gap-1.5 mb-0.5">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                <p class="text-2xl font-black text-emerald-600">OK</p>
             </div>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2">No Applications Found</h3>
-            <p class="text-slate-500 max-w-md mx-auto">
-                The APK folder is currently empty or the building process is running. Upload `.apk` files to the repository to see them listed here automatically.
-            </p>
+            <p class="text-[11px] text-slate-500 font-semibold uppercase tracking-wide">Build Status</p>
         </div>
 
-        <!-- App Grid -->
-        <div id="appGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden">
-            <!-- Cards will be injected here via JS -->
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     TOOLBAR
+════════════════════════════════════════════ -->
+<div id="toolbar" class="hidden max-w-7xl mx-auto px-5 mb-6">
+    <div class="flex items-center justify-between flex-wrap gap-3">
+
+        <!-- Filter tabs -->
+        <div id="filterTabs" class="flex items-center gap-1.5 flex-wrap"></div>
+
+        <!-- Sort + View -->
+        <div class="flex items-center gap-2.5">
+            <select id="sortSelect"
+                class="text-sm bg-white border border-slate-200 rounded-xl px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer shadow-sm font-semibold">
+                <option value="newest">⬇ Newest</option>
+                <option value="oldest">⬆ Oldest</option>
+                <option value="az">A → Z</option>
+                <option value="za">Z → A</option>
+                <option value="largest">⬇ Largest</option>
+                <option value="smallest">⬆ Smallest</option>
+            </select>
+
+            <div class="flex items-center bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                <button id="btnGrid" class="vtbtn active" onclick="setView('grid')" title="Grid view">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                    </svg>
+                </button>
+                <button id="btnList" class="vtbtn" onclick="setView('list')" title="List view">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
         </div>
+    </div>
+</div>
 
-    </main>
 
-    <script>
-        let allApps = [];
+<!-- ═══════════════════════════════════════════
+     MAIN
+════════════════════════════════════════════ -->
+<main class="max-w-7xl mx-auto px-5">
 
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchAppsData();
+    <!-- Skeleton -->
+    <div id="skeletonGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
 
-            // Search Bar Event Listener
-            document.getElementById('searchInput').addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filteredApps = allApps.filter(app => 
-                    app.app_name.toLowerCase().includes(searchTerm) || 
-                    app.package_name.toLowerCase().includes(searchTerm) ||
-                    app.version.toLowerCase().includes(searchTerm)
-                );
-                renderApps(filteredApps, searchTerm !== "");
-            });
+    <!-- Empty repo state -->
+    <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center fade-up">
+        <div class="bg-slate-100 p-6 rounded-full mb-6 border border-slate-200">
+            <svg class="w-14 h-14 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+            </svg>
+        </div>
+        <h3 class="text-2xl font-black text-slate-900 mb-2">Repository is empty</h3>
+        <p class="text-slate-500 max-w-sm mx-auto text-sm leading-relaxed">
+            Upload <code class="bg-slate-100 px-1.5 py-0.5 rounded font-mono-data text-xs text-slate-700">.apk</code> files and update
+            <code class="bg-slate-100 px-1.5 py-0.5 rounded font-mono-data text-xs text-slate-700">APK/apps.json</code>
+            to populate the repository automatically.
+        </p>
+    </div>
+
+    <!-- No search results -->
+    <div id="noResultState" class="hidden flex-col items-center justify-center py-16 text-center fade-up">
+        <svg class="w-12 h-12 text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <h3 class="text-lg font-bold text-slate-700 mb-1">No results found</h3>
+        <p id="noResultMsg" class="text-slate-400 text-sm"></p>
+    </div>
+
+    <!-- Grid -->
+    <div id="appGrid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+
+    <!-- List -->
+    <div id="appList" class="hidden flex-col gap-3"></div>
+
+</main>
+
+
+<!-- ═══════════════════════════════════════════
+     QR MODAL
+════════════════════════════════════════════ -->
+<div id="qrModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="modal-bg absolute inset-0 bg-slate-900/55" onclick="closeQr()"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl p-7 max-w-xs w-full text-center z-10 fade-up border border-slate-200">
+        <button onclick="closeQr()" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-700 transition-colors p-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <div class="flex items-center justify-center gap-2 mb-1">
+            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+            </svg>
+            <h3 class="font-bold text-slate-900 text-sm">Scan to Download</h3>
+        </div>
+        <p id="qrAppName" class="text-xs text-slate-400 font-mono-data mb-4 truncate"></p>
+
+        <div id="qrBox" class="flex items-center justify-center p-4 bg-white border border-slate-100 rounded-xl mx-auto mb-4" style="width:fit-content; min-height:180px"></div>
+
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+            Point your Android camera at the code above to install this APK directly on your device.
+        </p>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     TOAST CONTAINER
+════════════════════════════════════════════ -->
+<div id="toasts" class="fixed bottom-6 right-5 z-[200] flex flex-col gap-2 max-w-xs pointer-events-none"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="mt-20 border-t border-slate-200 bg-white/60">
+    <div class="max-w-7xl mx-auto px-5 py-7 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+        <div class="flex items-center gap-2 font-semibold text-slate-600">
+            <div class="w-6 h-6 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-md flex items-center justify-center">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+            </div>
+            AppCenter — by Angga Conni
+        </div>
+        <div class="flex items-center gap-3 text-slate-400">
+            <span>Internal Distribution</span>
+            <span>·</span>
+            <span id="footerSync">Not synced yet</span>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+// ══════════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════════
+let allApps     = [];
+let renderedNow = [];   // currently displayed (for QR index lookup)
+let curView     = 'grid';
+let curFilter   = 'all';
+let curSort     = 'newest';
+
+// ══════════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+    buildSkeletons();
+    fetchApps();
+
+    document.getElementById('searchInput').addEventListener('input', rerender);
+    document.getElementById('sortSelect').addEventListener('change', e => { curSort = e.target.value; rerender(); });
+
+    // Keyboard: / → focus search, Esc → close modal
+    document.addEventListener('keydown', e => {
+        if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+            e.preventDefault();
+            document.getElementById('searchInput').focus();
+        }
+        if (e.key === 'Escape') closeQr();
+    });
+});
+
+// ══════════════════════════════════════════════════════════
+//  SKELETONS
+// ══════════════════════════════════════════════════════════
+function buildSkeletons() {
+    const g = document.getElementById('skeletonGrid');
+    for (let i = 0; i < 8; i++) {
+        g.innerHTML += `
+        <div class="bg-white border border-slate-200 rounded-2xl p-6" style="animation-delay:${i*0.05}s">
+            <div class="flex items-start justify-between mb-5">
+                <div class="skeleton w-16 h-16 rounded-xl"></div>
+                <div class="skeleton w-14 h-7 rounded-xl"></div>
+            </div>
+            <div class="skeleton w-2/3 h-5 mb-2"></div>
+            <div class="skeleton w-full h-3.5 mb-6 opacity-60"></div>
+            <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="skeleton h-14 rounded-xl"></div>
+                <div class="skeleton h-14 rounded-xl"></div>
+            </div>
+            <div class="skeleton h-10 rounded-xl w-full"></div>
+        </div>`;
+    }
+}
+
+// ══════════════════════════════════════════════════════════
+//  FETCH
+// ══════════════════════════════════════════════════════════
+async function fetchApps() {
+    try {
+        await new Promise(r => setTimeout(r, 500));
+        const res = await fetch('APK/apps.json');
+        if (!res.ok) throw new Error('not found');
+        allApps = await res.json();
+
+        document.getElementById('skeletonGrid').classList.add('hidden');
+
+        if (!allApps.length) {
+            showEl('emptyState', 'flex');
+            return;
+        }
+
+        // Stats + toolbar
+        updateStats();
+        buildFilterTabs();
+        showEl('statsStrip'); showEl('toolbar');
+        showEl('syncDot', 'flex');
+        document.getElementById('navBadge').textContent = `${allApps.length} apps`;
+        document.getElementById('navBadge').classList.remove('hidden');
+        document.getElementById('footerSync').textContent = `Last sync: ${new Date().toLocaleTimeString()}`;
+
+        rerender();
+
+    } catch (err) {
+        console.warn('apps.json unavailable', err);
+        document.getElementById('skeletonGrid').classList.add('hidden');
+        showEl('emptyState', 'flex');
+    }
+}
+
+// ══════════════════════════════════════════════════════════
+//  STATS
+// ══════════════════════════════════════════════════════════
+function updateStats() {
+    animCount('sTotalApps', allApps.length);
+
+    const total = allApps.reduce((s, a) => s + (parseFloat(a.size_mb) || 0), 0);
+    document.getElementById('sTotalSize').textContent =
+        total >= 1000 ? `${(total/1000).toFixed(1)} GB` : `${Math.round(total)} MB`;
+
+    const dates = allApps.map(a => a.update_date).filter(Boolean).sort().reverse();
+    document.getElementById('sLatest').textContent = dates[0] || '—';
+}
+
+function animCount(id, target) {
+    const el = document.getElementById(id);
+    const dur = 700, start = performance.now();
+    const tick = now => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.floor(p * target);
+        if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+}
+
+// ══════════════════════════════════════════════════════════
+//  FILTER TABS
+// ══════════════════════════════════════════════════════════
+function buildFilterTabs() {
+    const cats = ['All', ...new Set(allApps.map(a => a.category).filter(Boolean))];
+    const wrap = document.getElementById('filterTabs');
+    wrap.innerHTML = '';
+    cats.forEach(cat => {
+        const isAll = cat === 'All';
+        const count = isAll ? allApps.length : allApps.filter(a => a.category === cat).length;
+        const btn = document.createElement('button');
+        btn.className = 'ftab' + (isAll ? ' active' : '');
+        btn.textContent = isAll ? `All  (${count})` : `${cat}  (${count})`;
+        btn.onclick = () => {
+            curFilter = isAll ? 'all' : cat;
+            wrap.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            rerender();
+        };
+        wrap.appendChild(btn);
+    });
+}
+
+// ══════════════════════════════════════════════════════════
+//  VIEW TOGGLE
+// ══════════════════════════════════════════════════════════
+function setView(v) {
+    curView = v;
+    document.getElementById('btnGrid').className = 'vtbtn' + (v === 'grid' ? ' active' : '');
+    document.getElementById('btnList').className = 'vtbtn' + (v === 'list' ? ' active' : '');
+    rerender();
+}
+
+// ══════════════════════════════════════════════════════════
+//  RERENDER
+// ══════════════════════════════════════════════════════════
+function rerender() {
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+
+    let apps = allApps.filter(a => {
+        const s = !q ||
+            (a.app_name     || '').toLowerCase().includes(q) ||
+            (a.package_name || '').toLowerCase().includes(q) ||
+            (a.version      || '').toLowerCase().includes(q) ||
+            (a.category     || '').toLowerCase().includes(q);
+        const f = curFilter === 'all' || a.category === curFilter;
+        return s && f;
+    });
+
+    apps = sort(apps, curSort);
+    renderedNow = apps;
+
+    ['appGrid','appList','noResultState'].forEach(id => hideEl(id));
+    document.getElementById('appList').classList.remove('flex');
+
+    if (!apps.length) {
+        showEl('noResultState', 'flex');
+        document.getElementById('noResultMsg').textContent =
+            q ? `No apps matching "${q}".` : 'No apps in this category.';
+        return;
+    }
+
+    if (curView === 'grid') { showEl('appGrid');  renderGrid(apps); }
+    else                    { showEl('appList', 'flex'); renderList(apps); }
+}
+
+function sort(apps, by) {
+    return [...apps].sort((a, b) => {
+        switch (by) {
+            case 'newest':   return dateDiff(b, a);
+            case 'oldest':   return dateDiff(a, b);
+            case 'az':       return (a.app_name || '').localeCompare(b.app_name || '');
+            case 'za':       return (b.app_name || '').localeCompare(a.app_name || '');
+            case 'largest':  return parseFloat(b.size_mb) - parseFloat(a.size_mb);
+            case 'smallest': return parseFloat(a.size_mb) - parseFloat(b.size_mb);
+            default:         return 0;
+        }
+    });
+}
+function dateDiff(a, b) {
+    return new Date(a.update_date || 0) - new Date(b.update_date || 0);
+}
+
+// ══════════════════════════════════════════════════════════
+//  IS NEW (≤ 7 days)
+// ══════════════════════════════════════════════════════════
+function isNew(d) {
+    if (!d) return false;
+    return (Date.now() - new Date(d).getTime()) / 86400000 <= 7;
+}
+
+// ══════════════════════════════════════════════════════════
+//  GRID RENDER
+// ══════════════════════════════════════════════════════════
+function renderGrid(apps) {
+    const g = document.getElementById('appGrid');
+    g.innerHTML = '';
+    apps.forEach((app, i) => {
+        const absUrl  = toAbsUrl(app.download_path);
+        const newBadge  = isNew(app.update_date)
+            ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</span>` : '';
+        const catBadge  = app.category
+            ? `<span class="bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">${esc(app.category)}</span>` : '';
+        const sdkRow    = app.min_sdk
+            ? `<div class="flex items-center gap-1.5 mb-4 text-xs text-slate-500">
+                  <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/>
+                  </svg>
+                  Min Android <strong>${esc(app.min_sdk)}</strong>
+              </div>` : '';
+        const shaRow    = app.sha256
+            ? `<div class="flex items-center gap-1.5 mb-3">
+                  <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-[10px] font-mono-data text-emerald-600 truncate">${app.sha256.substring(0,18)}…</span>
+              </div>` : '';
+
+        const card = document.createElement('div');
+        card.className = 'app-card rounded-2xl p-6 flex flex-col justify-between fade-up';
+        card.style.animationDelay = `${i * 0.045}s`;
+        card.dataset.idx = i;
+
+        card.innerHTML = `
+          <div>
+            <!-- Icon + version -->
+            <div class="flex items-start justify-between mb-4">
+              <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
+                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=128'"
+                class="w-16 h-16 rounded-xl object-cover border border-slate-200 bg-white shadow-sm">
+              <div class="flex flex-col items-end gap-1.5">
+                <span class="font-mono-data bg-blue-50 border border-blue-100 text-xs font-bold px-2.5 py-1 rounded-lg text-blue-700">v${esc(app.version)}</span>
+                <div class="flex items-center gap-1 flex-wrap justify-end">${newBadge}${catBadge}</div>
+              </div>
+            </div>
+
+            <!-- Name + package -->
+            <h3 class="text-[15px] font-extrabold text-slate-900 mb-0.5 truncate" title="${esc(app.app_name)}">${esc(app.app_name)}</h3>
+            <p class="text-xs text-slate-400 font-mono-data truncate mb-4" title="${esc(app.package_name)}">${esc(app.package_name)}</p>
+
+            <!-- Size + date -->
+            <div class="grid grid-cols-2 gap-2 mb-4">
+              <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 text-center">
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Size</p>
+                <p class="text-sm font-extrabold text-slate-700">${esc(app.size_mb)} MB</p>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 text-center">
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Updated</p>
+                <p class="text-xs font-extrabold text-slate-700 truncate">${esc(app.update_date)}</p>
+              </div>
+            </div>
+
+            ${sdkRow}${shaRow}
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-2 mt-1">
+            <a href="${esc(app.download_path)}" download
+              class="dl-btn flex-1 text-center py-2.5 rounded-xl text-sm flex items-center justify-center gap-2"
+              onclick="toast('⬇ Downloading ${esc(app.app_name).replace(/'/g,'\\&#39;')}…','info')">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Download
+            </a>
+
+            <!-- Copy link -->
+            <button class="reveal-btn icon-btn" title="Copy download link" onclick="copyLink('${absUrl}')">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+              </svg>
+            </button>
+
+            <!-- QR -->
+            <button class="reveal-btn icon-btn icon-qr" title="QR code" onclick="openQr(${i})">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+              </svg>
+            </button>
+          </div>
+        `;
+        g.appendChild(card);
+    });
+}
+
+// ══════════════════════════════════════════════════════════
+//  LIST RENDER
+// ══════════════════════════════════════════════════════════
+function renderList(apps) {
+    const l = document.getElementById('appList');
+    l.innerHTML = '';
+    apps.forEach((app, i) => {
+        const absUrl  = toAbsUrl(app.download_path);
+        const newBadge = isNew(app.update_date)
+            ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">NEW</span>` : '';
+
+        const row = document.createElement('div');
+        row.className = 'list-row flex items-center gap-4 px-5 py-4 fade-up';
+        row.style.animationDelay = `${i * 0.03}s`;
+        row.innerHTML = `
+          <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
+            onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=64'"
+            class="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0">
+
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="font-extrabold text-slate-900 text-sm">${esc(app.app_name)}</h3>
+              ${newBadge}
+              <span class="font-mono-data text-xs text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">v${esc(app.version)}</span>
+              ${app.category ? `<span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">${esc(app.category)}</span>` : ''}
+            </div>
+            <p class="text-xs text-slate-400 font-mono-data truncate mt-0.5">${esc(app.package_name)}</p>
+          </div>
+
+          <div class="hidden sm:flex items-center gap-6 text-xs text-slate-500 shrink-0">
+            <div class="text-center">
+              <p class="font-extrabold text-slate-700">${esc(app.size_mb)} MB</p>
+              <p class="text-slate-400 text-[10px]">Size</p>
+            </div>
+            <div class="text-center">
+              <p class="font-extrabold text-slate-700">${esc(app.update_date)}</p>
+              <p class="text-slate-400 text-[10px]">Updated</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="copyLink('${absUrl}')" title="Copy link"
+              class="hidden sm:flex p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+              </svg>
+            </button>
+            <button onclick="openQr(${i})" title="QR code"
+              class="hidden sm:flex p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+              </svg>
+            </button>
+            <a href="${esc(app.download_path)}" download
+              onclick="toast('⬇ Downloading…','info')"
+              class="dl-btn font-bold text-xs py-2 px-4 rounded-xl flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Download
+            </a>
+          </div>
+        `;
+        l.appendChild(row);
+    });
+}
+
+// ══════════════════════════════════════════════════════════
+//  QR MODAL
+// ══════════════════════════════════════════════════════════
+function openQr(idx) {
+    const app = renderedNow[idx];
+    if (!app) return;
+    const absUrl = toAbsUrl(app.download_path);
+
+    document.getElementById('qrAppName').textContent = app.app_name;
+    const box = document.getElementById('qrBox');
+    box.innerHTML = '';
+
+    if (typeof QRCode !== 'undefined') {
+        new QRCode(box, {
+            text: absUrl, width: 200, height: 200,
+            colorDark: '#0f172a', colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
         });
+    } else {
+        box.innerHTML = `<p class="text-xs text-slate-400 p-8 text-center">QR library unavailable.<br>
+            <a href="${absUrl}" class="text-blue-500 underline break-all text-[11px]">${absUrl}</a></p>`;
+    }
 
-        async function fetchAppsData() {
-            const loading = document.getElementById('loadingState');
-            const empty = document.getElementById('emptyState');
-            const grid = document.getElementById('appGrid');
+    document.getElementById('qrModal').classList.remove('hidden');
+}
+function closeQr() {
+    document.getElementById('qrModal').classList.add('hidden');
+}
 
-            try {
-                // Artificial delay for smooth loading animation
-                await new Promise(r => setTimeout(r, 400)); 
-                
-                const response = await fetch('APK/apps.json');
-                
-                if (!response.ok) throw new Error('Database not found');
+// ══════════════════════════════════════════════════════════
+//  COPY LINK
+// ══════════════════════════════════════════════════════════
+async function copyLink(url) {
+    try {
+        await navigator.clipboard.writeText(url);
+        toast('✅ Download link copied!', 'success');
+    } catch {
+        toast('⚠ Could not copy — check browser permissions', 'warning');
+    }
+}
 
-                allApps = await response.json();
+// ══════════════════════════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════════════════════════
+function toast(msg, type = 'info') {
+    const colors = { success: 'bg-emerald-600', info: 'bg-blue-600', warning: 'bg-amber-500' };
+    const t = document.createElement('div');
+    t.className = `toast-in pointer-events-auto ${colors[type] || colors.info} text-white text-sm font-semibold px-4 py-3 rounded-xl shadow-lg flex items-center gap-2`;
+    t.textContent = msg;
+    document.getElementById('toasts').appendChild(t);
+    setTimeout(() => { t.classList.replace('toast-in','toast-out'); setTimeout(() => t.remove(), 280); }, 2800);
+}
 
-                loading.classList.add('hidden');
+// ══════════════════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════════════════
+function toAbsUrl(path) {
+    if (!path) return window.location.href;
+    try { return new URL(path, window.location.href).href; }
+    catch { return path; }
+}
+function esc(str) {
+    if (!str && str !== 0) return '';
+    return String(str)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function showEl(id, display = 'block') {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('hidden');
+    if (display === 'flex') el.classList.add('flex');
+}
+function hideEl(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('hidden');
+    el.classList.remove('flex');
+}
+</script>
 
-                if (allApps.length === 0) {
-                    empty.classList.remove('hidden');
-                    empty.classList.add('flex');
-                } else {
-                    grid.classList.remove('hidden');
-                    renderApps(allApps);
-                }
+<style>
+/* ── Icon action buttons ── */
+.icon-btn {
+    padding: 9px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    color: var(--text-3);
+    background: transparent;
+    transition: all 0.18s;
+    display: flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover     { color: var(--primary); border-color: #bfdbfe; background: #eff6ff; }
+.icon-btn.icon-qr:hover { color: var(--accent); border-color: #c7d2fe; background: #eef2ff; }
 
-            } catch (error) {
-                console.warn("Could not load apps.json. Showing fallback state.", error);
-                loading.classList.add('hidden');
-                empty.classList.remove('hidden');
-                empty.classList.add('flex');
-            }
-        }
+/* ── Grid helper ── */
+#appGrid  { display: none; }
+#appGrid:not(.hidden) { display: grid; }
+#appList  { display: none; }
+#appList:not(.hidden) { display: flex; }
+</style>
 
-        function renderApps(appsToRender, isSearching = false) {
-            const grid = document.getElementById('appGrid');
-            grid.innerHTML = '';
-
-            if (appsToRender.length === 0 && isSearching) {
-                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-500 font-medium">No apps matching your search.</div>`;
-                return;
-            }
-
-            appsToRender.forEach((app, index) => {
-                const card = document.createElement('div');
-                card.className = `professional-card rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 animate-fade-in flex flex-col justify-between`;
-                card.style.animationDelay = `${index * 0.05}s`; 
-                
-                card.innerHTML = `
-                    <div>
-                        <div class="flex items-start justify-between mb-5">
-                            <img src="${app.icon_path}" alt="Icon" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&rounded=xl'"
-                                class="w-16 h-16 rounded-xl object-cover border border-slate-200 bg-white shadow-sm">
-                            
-                            <span class="bg-blue-50 border border-blue-100 text-xs font-semibold px-3 py-1 rounded-full text-blue-700">
-                                v${app.version}
-                            </span>
-                        </div>
-                        
-                        <h3 class="text-lg font-bold text-slate-900 mb-1 truncate" title="${app.app_name}">${app.app_name}</h3>
-                        <p class="text-sm text-slate-500 font-mono truncate mb-5" title="${app.package_name}">${app.package_name}</p>
-                        
-                        <div class="grid grid-cols-2 gap-3 mb-6">
-                            <div class="bg-slate-50 rounded-lg p-2.5 text-center border border-slate-100">
-                                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mb-1">Size</p>
-                                <p class="text-sm font-semibold text-slate-700">${app.size_mb} MB</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-lg p-2.5 text-center border border-slate-100">
-                                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mb-1">Updated</p>
-                                <p class="text-xs font-semibold text-slate-700 truncate" title="${app.update_date}">${app.update_date}</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="${app.download_path}" download class="block w-full text-center bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-2.5 rounded-xl transition-colors shadow-sm">
-                        Download APK
-                    </a>
-                `;
-                grid.appendChild(card);
-            });
-        }
-    </script>
 </body>
 </html>
