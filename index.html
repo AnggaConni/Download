@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus App Center</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Enterprise App Center</title>
+    <meta name="title" content="Enterprise App Center">
+    <meta name="description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
+    <meta name="author" content="Angga Conni">
+    <meta name="keywords" content="APK, Download, App Center, Repository, Android">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anggaconni.github.io/Download/">
+    <meta property="og:title" content="Enterprise App Center">
+    <meta property="og:description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
+    <!-- Gambar otomatis menggunakan UI Avatars untuk Thumbnail Share -->
+    <meta property="og:image" content="https://ui-avatars.com/api/?name=App+Center&background=2563eb&color=fff&size=512&font-size=0.33">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://anggaconni.github.io/Download/">
+    <meta property="twitter:title" content="Enterprise App Center">
+    <meta property="twitter:description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
+    <meta property="twitter:image" content="https://ui-avatars.com/api/?name=App+Center&background=2563eb&color=fff&size=512&font-size=0.33">
+
+    <!-- Hardcoded SVG Favicon (No external file needed) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><path d=%22M30 45 L50 65 L70 45 M50 25 L50 65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/><line x1=%2230%22 y1=%2280%22 x2=%2270%22 y2=%2280%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><path d=%22M30 45 L50 65 L70 45 M50 25 L50 65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/><line x1=%2230%22 y1=%2280%22 x2=%2270%22 y2=%2280%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        dark: '#0f172a',
-                        card: 'rgba(30, 41, 59, 0.7)',
-                        accent: '#10b981'
+                        primary: '#2563eb', // Blue-600
+                        'primary-hover': '#1d4ed8', // Blue-700
+                        background: '#f8fafc', // Slate-50
+                        surface: '#ffffff',
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-out',
@@ -30,49 +56,57 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
-            background-attachment: fixed;
-            color: #f8fafc;
+            background-color: #f8fafc;
+            color: #0f172a;
+            /* Subtle background pattern for a professional touch */
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
         }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
         
-        .glass-card {
-            background: var(--card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* Custom Light Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .professional-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
-<body class="min-h-screen font-sans antialiased selection:bg-emerald-500 selection:text-white pb-20">
+<body class="min-h-screen font-sans antialiased selection:bg-blue-200 selection:text-blue-900 pb-20">
+
+    <!-- Navbar / Top Header (Optional for professional look) -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 font-bold text-slate-800 text-lg tracking-tight">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                AppCenter
+            </div>
+            <div class="text-sm font-medium text-slate-500">
+                Internal Distribution
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Header -->
-    <header class="pt-16 pb-10 px-6 text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center justify-center p-3 bg-emerald-500/10 rounded-2xl text-emerald-400 mb-4 animate-fade-in">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-        </div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-fade-in" style="animation-delay: 0.1s;">
-            Repository <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">App Center</span>
+    <header class="pt-16 pb-12 px-6 text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 animate-fade-in">
+            Software <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Repository</span>
         </h1>
-        <p class="text-slate-400 text-lg mb-8 animate-fade-in" style="animation-delay: 0.2s;">
-            Download the latest verified builds directly from our automated CI/CD pipeline.
+        <p class="text-slate-500 text-lg mb-10 animate-fade-in" style="animation-delay: 0.1s;">
+            Access and download the latest verified builds securely from the automated CI/CD pipeline.
         </p>
 
         <!-- Search Bar -->
-        <div class="relative max-w-xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
+        <div class="relative max-w-xl mx-auto animate-fade-in shadow-sm rounded-xl" style="animation-delay: 0.2s;">
             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
-            <input type="text" id="searchInput" placeholder="Search applications (e.g. Scanner, v1.2)..." 
-                class="w-full bg-slate-800/50 border border-slate-700 text-white rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all placeholder-slate-500 shadow-lg">
+            <input type="text" id="searchInput" placeholder="Search applications, packages, or versions..." 
+                class="w-full bg-white border border-slate-300 text-slate-900 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-slate-400">
         </div>
     </header>
 
@@ -81,20 +115,20 @@
         
         <!-- Loading State -->
         <div id="loadingState" class="flex flex-col items-center justify-center py-20">
-            <svg class="animate-spin h-10 w-10 text-emerald-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg class="animate-spin h-10 w-10 text-blue-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <p class="text-slate-400">Syncing database...</p>
+            <p class="text-slate-500 font-medium">Syncing database...</p>
         </div>
 
         <!-- Fallback / Empty State -->
         <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center animate-fade-in">
-            <div class="bg-slate-800/50 p-6 rounded-full mb-6 border border-slate-700">
-                <svg class="w-16 h-16 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+            <div class="bg-slate-100 p-6 rounded-full mb-6 border border-slate-200">
+                <svg class="w-16 h-16 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
             </div>
-            <h3 class="text-2xl font-semibold text-white mb-2">No Applications Found</h3>
-            <p class="text-slate-400 max-w-md mx-auto">
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">No Applications Found</h3>
+            <p class="text-slate-500 max-w-md mx-auto">
                 The APK folder is currently empty or the building process is running. Upload `.apk` files to the repository to see them listed here automatically.
             </p>
         </div>
@@ -107,12 +141,12 @@
     </main>
 
     <script>
-        let allApps = []; // Menyimpan data global untuk fitur search
+        let allApps = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             fetchAppsData();
 
-            // Event listener untuk Search Bar
+            // Search Bar Event Listener
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
                 const filteredApps = allApps.filter(app => 
@@ -130,14 +164,12 @@
             const grid = document.getElementById('appGrid');
 
             try {
-                // Beri sedikit delay artifisial 500ms agar animasi loading terasa mulus
-                await new Promise(r => setTimeout(r, 500)); 
+                // Artificial delay for smooth loading animation
+                await new Promise(r => setTimeout(r, 400)); 
                 
                 const response = await fetch('APK/apps.json');
                 
-                if (!response.ok) {
-                    throw new Error('Database not found');
-                }
+                if (!response.ok) throw new Error('Database not found');
 
                 allApps = await response.json();
 
@@ -161,47 +193,46 @@
 
         function renderApps(appsToRender, isSearching = false) {
             const grid = document.getElementById('appGrid');
-            const empty = document.getElementById('emptyState');
             grid.innerHTML = '';
 
             if (appsToRender.length === 0 && isSearching) {
-                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-400">No apps matching your search.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-500 font-medium">No apps matching your search.</div>`;
                 return;
             }
 
             appsToRender.forEach((app, index) => {
                 const card = document.createElement('div');
-                card.className = `glass-card rounded-2xl p-5 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-900/20 transition-all duration-300 animate-fade-in group`;
-                card.style.animationDelay = `${index * 0.05}s`; // Staggered animation
+                card.className = `professional-card rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 animate-fade-in flex flex-col justify-between`;
+                card.style.animationDelay = `${index * 0.05}s`; 
                 
                 card.innerHTML = `
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="relative">
-                            <div class="absolute inset-0 bg-emerald-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity rounded-2xl"></div>
+                    <div>
+                        <div class="flex items-start justify-between mb-5">
                             <img src="${app.icon_path}" alt="Icon" 
-                                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=1e293b&color=10b981&rounded=true'"
-                                class="w-16 h-16 rounded-2xl object-cover border border-slate-600 relative z-10 bg-slate-800 shadow-md">
+                                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&rounded=xl'"
+                                class="w-16 h-16 rounded-xl object-cover border border-slate-200 bg-white shadow-sm">
+                            
+                            <span class="bg-blue-50 border border-blue-100 text-xs font-semibold px-3 py-1 rounded-full text-blue-700">
+                                v${app.version}
+                            </span>
                         </div>
-                        <span class="bg-slate-800 border border-slate-700 text-xs font-mono px-2.5 py-1 rounded-full text-slate-300">
-                            v${app.version}
-                        </span>
+                        
+                        <h3 class="text-lg font-bold text-slate-900 mb-1 truncate" title="${app.app_name}">${app.app_name}</h3>
+                        <p class="text-sm text-slate-500 font-mono truncate mb-5" title="${app.package_name}">${app.package_name}</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="bg-slate-50 rounded-lg p-2.5 text-center border border-slate-100">
+                                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mb-1">Size</p>
+                                <p class="text-sm font-semibold text-slate-700">${app.size_mb} MB</p>
+                            </div>
+                            <div class="bg-slate-50 rounded-lg p-2.5 text-center border border-slate-100">
+                                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mb-1">Updated</p>
+                                <p class="text-xs font-semibold text-slate-700 truncate" title="${app.update_date}">${app.update_date}</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <h3 class="text-xl font-bold text-white mb-1 truncate" title="${app.app_name}">${app.app_name}</h3>
-                    <p class="text-xs text-slate-400 font-mono truncate mb-4" title="${app.package_name}">${app.package_name}</p>
-                    
-                    <div class="grid grid-cols-2 gap-2 mb-5">
-                        <div class="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700/50">
-                            <p class="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Size</p>
-                            <p class="text-sm font-semibold text-slate-200">${app.size_mb} MB</p>
-                        </div>
-                        <div class="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700/50">
-                            <p class="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Updated</p>
-                            <p class="text-xs font-semibold text-slate-200 truncate" title="${app.update_date}">${app.update_date}</p>
-                        </div>
-                    </div>
-                    
-                    <a href="${app.download_path}" download class="block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold py-2.5 rounded-xl transition-colors shadow-lg shadow-emerald-500/20">
+                    <a href="${app.download_path}" download class="block w-full text-center bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-2.5 rounded-xl transition-colors shadow-sm">
                         Download APK
                     </a>
                 `;
