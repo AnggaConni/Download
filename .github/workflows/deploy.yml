@@ -1,0 +1,37 @@
+name: Dynamic Multi APK Catalog Deploy
+
+on:
+  push:
+    paths:
+      - 'APK/**.apk' # Memicu github action jika ada perubahan file berekstensi .apk di folder APK
+
+permissions:
+  contents: write
+
+jobs:
+  build-catalog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install app-info-parser
+
+      - name: Run Multi-Extraction Script
+        run: node extract.js
+
+      - name: Clean Environment
+        run: rm -rf node_modules package-lock.json package.json
+
+      - name: Commit and Push Catalog Data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: rebuild app catalog database [skip ci]"
+          file_pattern: 'APK/apps.json APK/icons/*.png'
