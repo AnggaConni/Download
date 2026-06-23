@@ -1,0 +1,22 @@
+[
+  {
+    "file_name": "GlobalScript.apk",
+    "app_name": "GlobalScript",
+    "version": "1.0.0.0",
+    "package_name": "io.github.anggaconni.twa",
+    "update_date": "Jun 23, 2026",
+    "icon_path": "APK/icons/GlobalScript.png",
+    "download_path": "APK/GlobalScript.apk",
+    "size_mb": "3.14"
+  },
+  {
+    "file_name": "PesisirKita.apk",
+    "app_name": "PesisirKita",
+    "version": "3",
+    "package_name": "io.github.anggaconni.twa",
+    "update_date": "Jun 23, 2026",
+    "icon_path": "APK/icons/PesisirKita.png",
+    "download_path": "APK/PesisirKita.apk",
+    "size_mb": "1.81"
+  }
+]
