@@ -259,6 +259,18 @@
             <kbd>/</kbd>
         </div>
     </div>
+
+
+        <!-- TAMPILKAN TOMBOL GUIDE DI SINI -->
+    <div class="flex justify-center mt-5 fade-up" style="animation-delay:.20s">
+        <button onclick="openGuide()" class="flex items-center gap-2 text-sm bg-white/80 backdrop-blur border border-slate-200 text-slate-600 font-semibold px-4 py-2 rounded-xl hover:bg-white hover:text-blue-600 hover:border-blue-300 transition-all shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Installation Guide
+        </button>
+    </div>
+
 </header>
 
 
@@ -402,6 +414,83 @@
     </div>
 </div>
 
+<!-- ═══════════════════════════════════════════
+     GUIDE MODAL
+════════════════════════════════════════════ -->
+<div id="guideModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="modal-bg absolute inset-0 bg-slate-900/55" onclick="closeGuide()"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-lg w-full z-10 fade-up border border-slate-200 max-h-[90vh] overflow-y-auto text-left">
+        <button onclick="closeGuide()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 transition-colors p-1 bg-slate-100 rounded-full">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                </svg>
+            </div>
+            <div>
+                <h3 class="font-extrabold text-slate-900 text-lg leading-tight">Installation Guide</h3>
+                <p class="text-xs text-slate-500 font-medium">How to install Android APKs safely</p>
+            </div>
+        </div>
+
+        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+            Android includes built-in security features to prevent accidental app installations. Since our enterprise apps are distributed outside the Google Play Store, you will need to grant permission to install them.
+        </p>
+
+        <div class="space-y-6">
+            <!-- Step 1: Unknown Sources -->
+            <div>
+                <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-2">
+                    <span class="bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[11px]">1</span>
+                    Allow "Unknown Sources"
+                </h4>
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-sm text-slate-600 space-y-2">
+                    <p>When you tap the downloaded <strong>.apk</strong> file, Android may block it by default.</p>
+                    <ul class="list-disc list-inside ml-1 space-y-1 text-slate-500 text-xs">
+                        <li>Tap <strong>Settings</strong> on the security prompt.</li>
+                        <li>Toggle on <strong>"Allow from this source"</strong> (for your browser or file manager).</li>
+                        <li>Go back and tap <strong>Install</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 2: Play Protect -->
+            <div>
+                <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-2">
+                    <span class="bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[11px]">2</span>
+                    Bypass Play Protect Warning
+                </h4>
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-sm text-slate-600 space-y-2">
+                    <p>Google Play Protect flags apps from independent developers. You might see an <em>"Unsafe app blocked"</em> warning.</p>
+                    <ul class="list-disc list-inside ml-1 space-y-1 text-slate-500 text-xs">
+                        <li>Tap <strong>"More details"</strong> on the warning popup.</li>
+                        <li>Tap <strong>"Install anyway"</strong> to proceed securely.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 3: Restricted Settings (Android 13+) -->
+            <div>
+                <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-2">
+                    <span class="bg-slate-400 text-white w-5 h-5 rounded-full flex items-center justify-center text-[11px]">3</span>
+                    Restricted Settings (Android 13+)
+                </h4>
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-xs text-slate-500 leading-relaxed">
+                    If the app requires special permissions (like Accessibility or Notifications) and they are greyed out: Go to your device <strong>Settings</strong> &rarr; <strong>Apps</strong> &rarr; Select the app &rarr; Tap the <strong>3 dots (⋮)</strong> in the top right &rarr; Tap <strong>"Allow restricted settings"</strong>.
+                </div>
+            </div>
+        </div>
+
+        <button onclick="closeGuide()" class="w-full mt-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+            I Understand, Close Guide
+        </button>
+    </div>
+</div>
 
 <!-- ═══════════════════════════════════════════
      TOAST CONTAINER
@@ -457,7 +546,10 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             document.getElementById('searchInput').focus();
         }
-        if (e.key === 'Escape') closeQr();
+        if (e.key === 'Escape') { 
+            closeQr(); 
+            closeGuide(); 
+        }
     });
 });
 
@@ -835,6 +927,15 @@ async function copyLink(url) {
     } catch {
         toast('⚠ Could not copy — check browser permissions', 'warning');
     }
+}
+// ══════════════════════════════════════════════════════════
+//  GUIDE MODAL
+// ══════════════════════════════════════════════════════════
+function openGuide() {
+    document.getElementById('guideModal').classList.remove('hidden');
+}
+function closeGuide() {
+    document.getElementById('guideModal').classList.add('hidden');
 }
 
 // ══════════════════════════════════════════════════════════
