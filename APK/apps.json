@@ -8,8 +8,8 @@
     "icon_path": "APK/icons/io.github.anggaconni.twa_3.png",
     "latest_version": "3",
     "update_date": "Jun 26, 2026",
-    "timestamp": 1782498488398,
-    "total_versions": 2,
+    "timestamp": 1782499503785,
+    "total_versions": 1,
     "versions": [
       {
         "version": "3",
@@ -19,16 +19,6 @@
         "update_date": "Jun 26, 2026",
         "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
         "min_sdk": 21,
-        "release_notes": ""
-      },
-      {
-        "version": "1.0.0.0",
-        "file_name": "GlobalScript.apk",
-        "download_path": "APK/GlobalScript.apk",
-        "size_mb": "3.14",
-        "update_date": "Jun 26, 2026",
-        "sha256": "f84b191e4f6febbd48bd9df9e2336d9a569846609ef91b4bb3fad14104b12e0a",
-        "min_sdk": 23,
         "release_notes": ""
       }
     ]
