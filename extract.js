@@ -133,10 +133,18 @@ async function processAllApks() {
 
         finalCatalog.push({
             app_name: latest.app_name,
-            package_name: latest.package_name, // Tetap gunakan package name asli untuk UI
+            package_name: latest.package_name,
             category: "Enterprise", 
             icon_path: latest.icon_path,
-            latest_version: latest.version,
+            
+            // --- TAMBAHKAN BARIS INI AGAR HTML TERBACA ---
+            version: latest.version,
+            download_path: latest.download_path,
+            size_mb: latest.size_mb,
+            sha256: latest.sha256,
+            min_sdk: latest.min_sdk,
+            // ---------------------------------------------
+            
             update_date: latest.update_date_str,
             timestamp: latest.timestamp,
             total_versions: versions.length,
