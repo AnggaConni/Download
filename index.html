@@ -582,7 +582,11 @@ function buildSkeletons() {
 async function fetchApps() {
     try {
         await new Promise(r => setTimeout(r, 500));
-        const res = await fetch('APK/apps.json');
+        
+        // ✨ PERBAIKAN CACHE BUSTER DISINI ✨
+        // Menggunakan parameter timestamp '?t=' agar file apps.json selalu ditarik versi paling baru
+        const res = await fetch('APK/apps.json?t=' + new Date().getTime());
+        
         if (!res.ok) throw new Error('not found');
         allApps = await res.json();
 
