@@ -5,14 +5,14 @@
     ],
     "package_name": "io.github.anggaconni.twa",
     "category": "Enterprise",
-    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782722587659.png",
+    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782726412705.png",
     "version": "3",
     "download_path": "APK/PesisirKita.apk",
     "size_mb": "1.81",
     "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
     "min_sdk": 21,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782722580800,
+    "timestamp": 1782726407235,
     "total_versions": 1,
     "versions": [
       {
@@ -33,14 +33,14 @@
     ],
     "package_name": "io.github.anggaconni.globalscript",
     "category": "Enterprise",
-    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782722587551.png",
+    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782726412640.png",
     "version": "1.0.0.0",
     "download_path": "APK/GlobalScript.apk",
     "size_mb": "3.14",
     "sha256": "baf8ffca4e2d5eab28c8309ffb5742f61f0ed1796a2b9d89078196070575c14b",
     "min_sdk": 23,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782722580794,
+    "timestamp": 1782726407230,
     "total_versions": 1,
     "versions": [
       {
@@ -61,14 +61,14 @@
     ],
     "package_name": "id.anggasaputra.gizikita.twa",
     "category": "Enterprise",
-    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782722587441.png",
+    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782726412558.png",
     "version": "1.0.0.0",
     "download_path": "APK/GiziDesa.apk",
     "size_mb": "2.85",
-    "sha256": "2e536e65eaee76ed81cc43be52033282efc1d0b488f9e7d7a94cdac3bbe1512c",
+    "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
     "min_sdk": 23,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782722580788,
+    "timestamp": 1782726407225,
     "total_versions": 1,
     "versions": [
       {
@@ -77,7 +77,7 @@
         "download_path": "APK/GiziDesa.apk",
         "size_mb": "2.85",
         "update_date": "Jun 29, 2026",
-        "sha256": "2e536e65eaee76ed81cc43be52033282efc1d0b488f9e7d7a94cdac3bbe1512c",
+        "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
         "min_sdk": 23,
         "release_notes": ""
       }
