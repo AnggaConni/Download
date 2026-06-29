@@ -141,76 +141,109 @@
         .nav-btn.active { color: #059669; }
         .nav-btn.active .nav-pill { background-color: #d1fae5; }
         .nav-btn.active i { font-weight: 700; }
+
+        /* --- KUSTOMISASI GOOGLE TRANSLATE --- */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        #google_translate_element { 
+            z-index: 100; 
+            display: flex;
+            align-items: center;
+        }
+        .goog-te-gadget-simple {
+            background-color: rgba(51, 65, 85, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 0.5rem !important;
+            padding: 0 10px !important;
+            height: 34px !important;
+            display: flex !important;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+        }
+        .goog-te-menu-value {
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* 1. PAKSA SEMUA WARNA TEKS JADI PUTIH BERSIH */
+        .goog-te-gadget-simple, 
+        .goog-te-gadget-simple a, 
+        .goog-te-gadget-simple span {
+            color: #ffffff !important; 
+        }
+
+        /* 2. FORMAT TEKS UTAMA (PILIH BAHASA) AGAR TEGAS & JELAS */
+        .goog-te-gadget-simple .goog-te-menu-value span:first-child { 
+            font-size: 11px !important; 
+            font-weight: 600 !important;
+            font-family: 'Inter', sans-serif !important;
+            letter-spacing: 0.02em;
+        }
+        
+        /* 3. SEMBUNYIKAN LOGO GOOGLE */
+        .goog-te-gadget-simple img { display: none !important; }
+        
+        /* 4. HANCURKAN GARIS SEPARATOR VERTIKAL BAWAAN GOOGLE */
+        .goog-te-gadget-simple .goog-te-menu-value span {
+            border-left: none !important;
+            border-right: none !important;
+        }
+        
+        /* 5. PANAH DROPDOWN DIBERI WARNA ABU TERANG AGAR ELEGAN */
+        .goog-te-gadget-simple .goog-te-menu-value span:last-child {
+            color: #94a3b8 !important; 
+            margin-left: 6px !important;
+        }
+
     </style>
 </head>
 <body class="text-slate-800">
 
     <div class="app-container">
 
-<!-- Header -->
-<header
-    class="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500
-           text-white px-5 pt-5 pb-5 shadow-lg overflow-hidden shrink-0">
+    <!-- Header -->
+    <header
+        class="relative bg-slate-800 text-slate-100 px-4 py-4 shadow-lg overflow-hidden shrink-0">
 
-    <!-- Background decoration -->
-    <div class="absolute -top-10 -right-8 w-36 h-36 rounded-full bg-white/10 blur-3xl"></div>
-    <div class="absolute -bottom-8 -left-6 w-28 h-28 rounded-full bg-teal-300/10 blur-2xl"></div>
+        <div class="absolute -top-10 -right-8 w-36 h-36 rounded-full bg-slate-700/30 blur-3xl"></div>
+        <div class="absolute -bottom-8 -left-6 w-28 h-28 rounded-full bg-slate-700/30 blur-2xl"></div>
 
-    <div class="relative flex justify-between items-center">
+        <div class="relative flex justify-between items-center gap-2">
 
-        <!-- Logo -->
-        <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2.5 shrink">
+                
+                <div class="bg-slate-700/50 backdrop-blur-md rounded-xl p-2 shadow-inner ring-1 ring-white/10 shrink-0">
+                    <img src="favicon.svg" alt="GiziKita" class="w-7 h-7">
+                </div>
 
-            <div class="bg-white/15 backdrop-blur-md
-                        rounded-2xl p-2.5
-                        shadow-lg ring-1 ring-white/20">
-
-                <img
-                    src="favicon.svg"
-                    alt="GiziKita"
-                    class="w-8 h-8">
-            </div>
-
-            <div>
-
-                <h1 class="text-xl font-extrabold tracking-tight leading-none">
-                    GiziKita
-                </h1>
-
-                <p class="text-xs text-emerald-50 font-medium mt-0.5 opacity-90">
-                    Smart Nutrition Planner
-                </p>
+                <div class="min-w-0">
+                    <h1 class="text-lg font-bold tracking-tight leading-none text-white truncate">
+                        GiziKita
+                    </h1>
+                    <p class="text-[10px] font-medium mt-1 text-slate-400 truncate uppercase tracking-widest">
+                        Smart Nutrition
+                    </p>
+                </div>
 
             </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+            
+            <div id="google_translate_element"></div>
+
+            <button
+                id="gps-status"
+                onclick="app.getLocation()"
+                class="flex items-center justify-center gap-1.5 px-3 h-[34px] rounded-lg bg-slate-700/50 hover:bg-slate-700 backdrop-blur-md border border-white/10 shadow-sm transition-all duration-200 active:scale-95">
+                <i class="ph ph-map-pin text-sm text-slate-300"></i>
+                <span class="text-[10px] font-semibold text-slate-300 hidden min-[380px]:inline-block uppercase tracking-wider">Set Lokasi</span>
+            </button>
 
         </div>
 
-        <!-- GPS -->
-        <button
-            id="gps-status"
-            onclick="app.getLocation()"
-            class="flex items-center gap-1.5
-                   px-4 py-2.5
-                   rounded-full
-                   bg-white/15
-                   hover:bg-white/25
-                   backdrop-blur-md
-                   border border-white/10
-                   shadow-md
-                   transition-all duration-200
-                   active:scale-95">
-
-            <i class="ph ph-map-pin text-base"></i>
-
-            <span class="text-xs font-semibold">
-                Set Lokasi
-            </span>
-
-        </button>
-
-    </div>
-
-</header>
+        </div>
+    </header>
 
         <!-- Main Content -->
         <main id="main-content" class="flex-1 px-4 py-5 overflow-y-auto relative"></main>
@@ -1037,13 +1070,18 @@
                 }
                 this.showToast("Memproses dokumen PDF...");
                 const container = document.createElement('div');
-                container.style.cssText = 'padding:30px;font-family:Inter,sans-serif;color:#1f2937;';
+                // Hapus padding:30px agar tidak dobel dengan margin html2pdf
+                container.style.cssText = 'font-family:Inter,sans-serif;color:#1f2937;';
                 
-                // Urutan waktu makan
                 const times = ['Sarapan', 'Makan Siang', 'Makan Malam', 'Selingan'];
                 
+                // 1. STYLE, HEADER, & PROFIL
                 let html = `
-                    <div style="border-bottom:2px solid #059669;padding-bottom:10px;margin-bottom:20px;">
+                    <style>
+                        tr, li { page-break-inside: avoid !important; }
+                    </style>
+                    
+                    <div style="border-bottom:2px solid #059669;padding-bottom:10px;margin-bottom:15px;">
                         <h1 style="color:#059669;margin:0;font-size:24px;">Laporan Rekomendasi GiziKita</h1>
                         <p style="margin:5px 0 0;color:#6b7280;font-size:14px;">Sistem Pendukung Keputusan Gizi Posyandu</p>
                     </div>
@@ -1053,26 +1091,12 @@
                         <p style="margin:5px 0;font-size:14px;"><strong>Umur:</strong> ${this.state.profile.age} Bulan | <strong>Berat:</strong> ${this.state.profile.weight} kg | <strong>Tinggi:</strong> ${this.state.profile.height} cm</p>
                         <p style="margin:5px 0;font-size:14px;"><strong>Anggaran Harian:</strong> ${this.formatIDR(this.state.profile.budget)}</p>
                     </div>
-                    
-                    <h3 style="font-size:16px;border-bottom:1px solid #e5e7eb;padding-bottom:5px;">Rekomendasi Menu Harian (Total: ${this.formatIDR(this.lastGeneratedStats.cost)})</h3>
-                    <ul style="list-style:none; padding-left:0; margin-bottom:20px;">`;
-                
-                // Looping menu beserta keterangan waktu makan (Sarapan, Siang, dll)
-                this.lastGeneratedMenu.forEach((m, i) => {
-                    html += `
-                        <li style="margin-bottom:12px; font-size:14px; background:#f9fafb; padding:10px; border-left:4px solid #059669; border-radius:4px;">
-                            <strong style="color:#059669; font-size:12px; text-transform:uppercase;">${times[i] || 'Selingan'}</strong><br>
-                            <strong style="font-size:15px;">${m.name}</strong><br>
-                            <span style="color:#4b5563;font-size:12px;">Estimasi Biaya: ${this.formatIDR(m.cost)}</span><br>
-                            <span style="color:#6b7280;font-size:12px;"><em>Tips Edukasi: ${m.tips}</em></span>
-                        </li>`;
-                });
-                
-                // Tabel Gizi yang jauh lebih lengkap
-                html += `</ul>
-                    <h3 style="font-size:16px;border-bottom:1px solid #e5e7eb;padding-bottom:5px;">Capaian Target Gizi</h3>
+                `;
 
-                    <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left;">
+                // 2. TABEL GIZI (Dinaikkan ke atas)
+                html += `
+                    <h3 style="font-size:16px;border-bottom:1px solid #e5e7eb;padding-bottom:5px;">Capaian Target Gizi</h3>
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left;margin-bottom:25px;">
                         <tr style="background:#f3f4f6;">
                             <th style="padding:8px;border:1px solid #d1d5db;">Nutrisi</th>
                             <th style="padding:8px;border:1px solid #d1d5db;">Capaian AI</th>
@@ -1088,16 +1112,38 @@
                         <tr><td style="padding:8px;border:1px solid #d1d5db;">Vitamin A</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.a.toFixed(0)} mcg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.a} mcg</td></tr>
                         <tr><td style="padding:8px;border:1px solid #d1d5db;">Vitamin C</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.vitc.toFixed(1)} mg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.vitc} mg</td></tr>
                     </table>
+                `;
 
-                    <p style="margin-top:30px;font-size:10px;color:#9ca3af;text-align:center;">Dihasilkan oleh AI GiziKita - Aplikasi Bekerja Secara Offline</p>`;
+                // 3. REKOMENDASI MENU (Ditaruh di bawah agar mengalir ke halaman berikutnya)
+                html += `
+                    <h3 style="font-size:16px;border-bottom:1px solid #e5e7eb;padding-bottom:5px;">Rekomendasi Menu Harian (Total: ${this.formatIDR(this.lastGeneratedStats.cost)})</h3>
+                    <ul style="list-style:none; padding-left:0; margin-bottom:20px;">
+                `;
                 
+                this.lastGeneratedMenu.forEach((m, i) => {
+                    html += `
+                        <li style="margin-bottom:12px; font-size:14px; background:#f9fafb; padding:10px; border-left:4px solid #059669; border-radius:4px;">
+                            <strong style="color:#059669; font-size:12px; text-transform:uppercase;">${times[i] || 'Selingan'}</strong><br>
+                            <strong style="font-size:15px;">${m.name}</strong><br>
+                            <span style="color:#4b5563;font-size:12px;">Estimasi Biaya: ${this.formatIDR(m.cost)}</span><br>
+                            <span style="color:#6b7280;font-size:12px;"><em>Tips Edukasi: ${m.tips}</em></span>
+                        </li>`;
+                });
+                
+                html += `</ul>
+                    <p style="margin-top:20px;font-size:10px;color:#9ca3af;text-align:center;">Dihasilkan oleh AI GiziKita - Aplikasi Bekerja Secara Offline</p>
+                `;
+
                 container.innerHTML = html;
+                
+                // Perbaikan margin: [atas, kiri, bawah, kanan]. Atas dikurangi dari 0.5 jadi 0.2 inci.
                 html2pdf().set({
-                    margin: 0.5, 
+                    margin: [0.2, 0.4, 0.4, 0.4], 
                     filename: `Laporan_GiziKita_${this.state.profile.age}bln.pdf`,
-                    image: { type:'jpeg', quality:0.98 }, 
-                    html2canvas:{ scale:2 },
-                    jsPDF: { unit:'in', format:'a4', orientation:'portrait' }
+                    image: { type:'jpeg', quality:1 }, 
+                    html2canvas:{ scale:2, useCORS: true },
+                    jsPDF: { unit:'in', format:'a4', orientation:'portrait' },
+                    pagebreak: { mode: ['css', 'legacy'] }
                 }).from(container).save();
             }
 
@@ -1125,5 +1171,17 @@
         }
 
     </script>
+
+    <!-- Script Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: '', // Tetap kosongkan agar 'Indonesia' muncul sebagai opsi reset
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
