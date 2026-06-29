@@ -1,1007 +1,1129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>Enterprise App Center</title>
-    <meta name="title" content="Enterprise App Center">
-    <meta name="description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
-    <meta name="author" content="Angga Conni">
-    <meta name="keywords" content="APK, Download, App Center, Repository, Android">
+    <title>GiziKita - Smart Nutrition Planner untuk Balita, Posyandu & Pencegahan Stunting</title>
+
+    <meta name="description"
+    content="GiziKita membantu kader Posyandu dan orang tua menyusun menu bergizi berdasarkan harga pasar lokal, kebutuhan nutrisi balita, dan anggaran harian. Berfungsi sepenuhnya secara offline.">
+
+    <meta name="keywords"
+    content="stunting, gizi balita, posyandu, AI nutrition planner, menu balita, gizi anak, pangan lokal, ketahanan pangan, kader kesehatan, WHO, UNICEF, Indonesia">
+
+    <meta name="author" content="Angga Saputra">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#059669">
+
+    <meta name="application-name" content="GiziKita">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <meta name="apple-mobile-web-app-title" content="GiziKita">
+
+    <meta name="mobile-web-app-capable" content="yes">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://anggaconni.github.io/Download/">
-    <meta property="og:title" content="Enterprise App Center">
-    <meta property="og:description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
-    <meta property="og:image" content="https://ui-avatars.com/api/?name=App+Center&background=2563eb&color=fff&size=512&font-size=0.33">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://anggaconni.github.io/Download/">
-    <meta property="twitter:title" content="Enterprise App Center">
-    <meta property="twitter:description" content="Access and download the latest verified APK builds securely from our automated CI/CD pipeline repository.">
-    <meta property="twitter:image" content="https://ui-avatars.com/api/?name=App+Center&background=2563eb&color=fff&size=512&font-size=0.33">
+    <meta property="og:title"
+    content="GiziKita - AI Nutrition Planner untuk Balita">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><path d=%22M30 45 L50 65 L70 45 M50 25 L50 65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/><line x1=%2230%22 y1=%2280%22 x2=%2270%22 y2=%2280%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><path d=%22M30 45 L50 65 L70 45 M50 25 L50 65%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 fill=%22none%22/><line x1=%2230%22 y1=%2280%22 x2=%2270%22 y2=%2280%22 stroke=%22white%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
+    <meta property="og:description"
+    content="Menyusun menu bergizi berdasarkan harga pasar lokal, kebutuhan nutrisi, dan anggaran harian secara offline.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta property="og:image"
+    content="https://anggaconni.github.io/GiziKita/thumbnail.jpeg">
+
+    <meta property="og:url"
+    content="https://anggaconni.github.io/GiziKita/">
+
+    <meta property="og:site_name"
+    content="GiziKita">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title"
+    content="GiziKita - AI Nutrition Planner">
+
+    <meta name="twitter:description"
+    content="AI Nutrition Planner Offline untuk Posyandu dan Pencegahan Stunting.">
+
+    <meta name="twitter:image"
+    content="https://anggaconni.github.io/GiziKita/thumbnail.jpeg">
+
+    <link rel="canonical" href="https://anggaconni.github.io/GiziKita/">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
-            --primary:      #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent:       #6366f1;
-            --success:      #059669;
-            --warning:      #d97706;
-            --surface:      #ffffff;
-            --bg:           #eef2ff;
-            --border:       #e2e8f0;
-            --text-1:       #0f172a;
-            --text-2:       #475569;
-            --text-3:       #94a3b8;
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
-
-        * { box-sizing: border-box; }
-
+        * { -webkit-tap-highlight-color: transparent; }
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-1);
-            background-image:
-                radial-gradient(at 15% 10%, rgba(99,102,241,0.08) 0, transparent 55%),
-                radial-gradient(at 85% 5%,  rgba(37,99,235,0.07)  0, transparent 50%),
-                radial-gradient(at 50% 95%, rgba(99,102,241,0.05) 0, transparent 60%);
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            margin: 0;
         }
-
-        /* ── Typography ── */
-        .font-mono-data { font-family: 'JetBrains Mono', 'Courier New', monospace; }
-
-        /* ── Shimmer skeleton ── */
-        @keyframes shimmer {
-            0%   { background-position: -900px 0; }
-            100% { background-position:  900px 0; }
+        .app-container {
+            width: 100%;
+            max-width: 460px;
+            background-color: #f8fafc;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
-        .skeleton {
-            background: linear-gradient(90deg, #dde4f2 25%, #e8edf8 50%, #dde4f2 75%);
-            background-size: 900px 100%;
-            animation: shimmer 1.6s ease-in-out infinite;
-            border-radius: 8px;
+        @media (min-width: 640px) {
+            body { padding: 24px; }
+            .app-container {
+                height: min(880px, 92vh);
+                border-radius: 2.75rem;
+                border: 9px solid #0f172a;
+                box-shadow: 0 30px 60px -15px rgba(0,0,0,0.35);
+                overflow: hidden;
+            }
         }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
 
-        /* ── Fade-in ── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(12px); }
+        .progress-bar-fill { transition: width 0.7s cubic-bezier(0.16,1,0.3,1); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        .fade-up { animation: fadeUp 0.4s ease-out both; }
+        .animate-fade-in { animation: fadeIn 0.35s ease-out; }
+        @keyframes pop {
+            0% { transform: scale(0.96); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop { animation: pop 0.3s cubic-bezier(0.16,1,0.3,1); }
 
-        /* ── Card ── */
-        .app-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-        }
-        .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(37,99,235,0.13), 0 4px 12px rgba(0,0,0,0.07);
-            border-color: #bfdbfe;
-        }
-        .app-card .reveal-btn {
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .app-card:hover .reveal-btn { opacity: 1; }
-
-        /* ── Download button ── */
-        .dl-btn {
-            background: var(--surface);
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            font-weight: 700;
-            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-            position: relative; overflow: hidden;
-        }
-        .dl-btn:hover {
-            background: var(--primary);
+        .toast {
+            visibility: hidden;
+            max-width: 88%;
+            background-color: #0f172a;
             color: #fff;
-            box-shadow: 0 4px 14px rgba(37,99,235,0.35);
-        }
-
-        /* ── Filter tab ── */
-        .ftab {
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1.5px solid transparent;
-            color: var(--text-2);
-            background: transparent;
-            transition: all 0.15s;
-            white-space: nowrap;
-        }
-        .ftab:hover  { background: #eff6ff; color: var(--primary); }
-        .ftab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-        /* ── List row ── */
-        .list-row {
-            background: var(--surface);
-            border: 1px solid var(--border);
+            text-align: center;
             border-radius: 14px;
-            transition: box-shadow 0.2s, border-color 0.2s;
+            padding: 13px 18px;
+            position: fixed;
+            z-index: 50;
+            left: 50%;
+            bottom: 90px;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity .3s, bottom .3s;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
-        .list-row:hover {
-            box-shadow: 0 6px 18px rgba(37,99,235,0.09);
-            border-color: #bfdbfe;
-        }
+        .toast.show { visibility: visible; opacity: 1; bottom: 105px; }
 
-        /* ── Toast ── */
-        @keyframes slideIn  { from { transform: translateX(110%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(110%); opacity: 0; } }
-        .toast-in  { animation: slideIn  0.28s ease-out; }
-        .toast-out { animation: slideOut 0.28s ease-in forwards; }
-
-        /* ── NEW badge pulse ── */
-        @keyframes pulse-soft { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
-        .badge-new { animation: pulse-soft 2.2s ease-in-out infinite; }
-
-        /* ── Scrollbar ── */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #c7d2e0; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-        /* ── Kbd ── */
-        kbd {
-            background: #f1f5f9; border: 1px solid var(--border);
-            border-bottom-width: 2px; border-radius: 5px;
-            color: var(--text-3); font-size: 0.7rem; padding: 1px 5px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* ── Modal ── */
-        .modal-bg { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-
-        /* ── Stat card ── */
-        .stat-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        /* ── View toggle button ── */
-        .vtbtn {
-            padding: 8px 10px;
-            transition: background 0.15s, color 0.15s;
-        }
-        .vtbtn.active { background: #eff6ff; color: var(--primary); }
-        .vtbtn:not(.active) { color: var(--text-3); }
-        .vtbtn:not(.active):hover { background: #f8fafc; color: var(--text-2); }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-        }
+        .nav-btn.active { color: #059669; }
+        .nav-btn.active .nav-pill { background-color: #d1fae5; }
+        .nav-btn.active i { font-weight: 700; }
     </style>
 </head>
-<body class="pb-24 antialiased selection:bg-blue-200 selection:text-blue-900">
+<body class="text-slate-800">
 
-<!-- ═══════════════════════════════════════════
-     NAVBAR
-════════════════════════════════════════════ -->
-<nav class="bg-white/90 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-5 h-15 flex items-center justify-between gap-4" style="height:60px">
+    <div class="app-container">
+
+<!-- Header -->
+<header
+    class="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500
+           text-white px-5 pt-5 pb-5 shadow-lg overflow-hidden shrink-0">
+
+    <!-- Background decoration -->
+    <div class="absolute -top-10 -right-8 w-36 h-36 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="absolute -bottom-8 -left-6 w-28 h-28 rounded-full bg-teal-300/10 blur-2xl"></div>
+
+    <div class="relative flex justify-between items-center">
 
         <!-- Logo -->
-        <div class="flex items-center gap-2.5 shrink-0">
-            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-lg flex items-center justify-center shadow">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
+        <div class="flex items-center gap-3">
+
+            <div class="bg-white/15 backdrop-blur-md
+                        rounded-2xl p-2.5
+                        shadow-lg ring-1 ring-white/20">
+
+                <img
+                    src="favicon.svg"
+                    alt="GiziKita"
+                    class="w-8 h-8">
             </div>
-            <span class="font-extrabold text-slate-800 text-lg tracking-tight">App<span class="text-blue-600">Center</span></span>
-            <span id="navBadge" class="hidden bg-blue-100 text-blue-700 text-[11px] font-bold px-2 py-0.5 rounded-full ml-0.5"></span>
-        </div>
 
-        <!-- Right -->
-        <div class="flex items-center gap-4">
-            <div id="syncDot" class="hidden items-center gap-1.5 text-xs font-semibold text-emerald-600">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                Live
+            <div>
+
+                <h1 class="text-xl font-extrabold tracking-tight leading-none">
+                    GiziKita
+                </h1>
+
+                <p class="text-xs text-emerald-50 font-medium mt-0.5 opacity-90">
+                    Smart Nutrition Planner
+                </p>
+
             </div>
-            <span class="text-xs text-slate-400 font-medium hidden sm:block">Internal Distribution</span>
+
         </div>
-    </div>
-</nav>
 
+        <!-- GPS -->
+        <button
+            id="gps-status"
+            onclick="app.getLocation()"
+            class="flex items-center gap-1.5
+                   px-4 py-2.5
+                   rounded-full
+                   bg-white/15
+                   hover:bg-white/25
+                   backdrop-blur-md
+                   border border-white/10
+                   shadow-md
+                   transition-all duration-200
+                   active:scale-95">
 
-<!-- ═══════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
-<header class="pt-14 pb-8 px-5 text-center max-w-3xl mx-auto">
+            <i class="ph ph-map-pin text-base"></i>
 
-    <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5 fade-up" style="animation-delay:.04s">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-        </svg>
-        Automated CI/CD · Cryptographically Verified
-    </div>
+            <span class="text-xs font-semibold">
+                Set Lokasi
+            </span>
 
-    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4 fade-up leading-[1.1]" style="animation-delay:.08s">
-        Software <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-500">Repository</span>
-    </h1>
-    <p class="text-slate-500 text-base mb-8 fade-up max-w-md mx-auto leading-relaxed" style="animation-delay:.12s">
-        Download the latest verified APK builds. Every release is signed, tested, and published automatically.
-    </p>
-
-    <!-- Search -->
-    <div class="relative max-w-xl mx-auto fade-up" style="animation-delay:.16s">
-        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-        </div>
-        <input type="text" id="searchInput" placeholder="Search apps, packages, or versions…"
-            class="w-full bg-white border border-slate-300 text-slate-900 rounded-2xl pl-12 pr-16 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-slate-400 shadow-sm text-sm"
-            autocomplete="off" spellcheck="false">
-        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-            <kbd>/</kbd>
-        </div>
-    </div>
-
-
-        <!-- TAMPILKAN TOMBOL GUIDE DI SINI -->
-    <div class="flex justify-center mt-5 fade-up" style="animation-delay:.20s">
-        <button onclick="openGuide()" class="flex items-center gap-2 text-sm bg-white/80 backdrop-blur border border-slate-200 text-slate-600 font-semibold px-4 py-2 rounded-xl hover:bg-white hover:text-blue-600 hover:border-blue-300 transition-all shadow-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            Installation Guide
         </button>
+
     </div>
 
 </header>
 
+        <!-- Main Content -->
+        <main id="main-content" class="flex-1 px-4 py-5 overflow-y-auto relative"></main>
 
-<!-- ═══════════════════════════════════════════
-     STATS STRIP
-════════════════════════════════════════════ -->
-<div id="statsStrip" class="hidden max-w-7xl mx-auto px-5 mb-7">
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-
-        <div class="stat-card p-4 text-center">
-            <p class="text-2xl font-black text-slate-900 font-mono-data" id="sTotalApps">—</p>
-            <p class="text-[11px] text-slate-500 font-semibold mt-0.5 uppercase tracking-wide">Applications</p>
-        </div>
-
-        <div class="stat-card p-4 text-center">
-            <p class="text-2xl font-black text-slate-900 font-mono-data" id="sTotalSize">—</p>
-            <p class="text-[11px] text-slate-500 font-semibold mt-0.5 uppercase tracking-wide">Repo Size</p>
-        </div>
-
-        <div class="stat-card p-4 text-center">
-            <p class="text-sm font-black text-slate-900 leading-tight" id="sLatest">—</p>
-            <p class="text-[11px] text-slate-500 font-semibold mt-0.5 uppercase tracking-wide">Latest Build</p>
-        </div>
-
-        <div class="stat-card p-4 text-center">
-            <div class="flex items-center justify-center gap-1.5 mb-0.5">
-                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                <p class="text-2xl font-black text-emerald-600">OK</p>
-            </div>
-            <p class="text-[11px] text-slate-500 font-semibold uppercase tracking-wide">Build Status</p>
-        </div>
-
+        <!-- Bottom Navigation -->
+        <nav class="w-full bg-white/95 backdrop-blur border-t border-slate-100 flex justify-around px-2 pt-2 z-20 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] shrink-0"
+             style="padding-bottom: calc(8px + var(--safe-bottom));">
+            <button onclick="app.switchTab('profile')" class="nav-btn flex flex-col items-center w-1/4 text-slate-400 transition" data-target="profile">
+                <span class="nav-pill px-5 py-1 rounded-full transition-colors"><i class="ph-bold ph-user text-xl"></i></span>
+                <span class="text-[10px] font-semibold mt-1">Keluarga</span>
+            </button>
+            <button onclick="app.switchTab('market')" class="nav-btn flex flex-col items-center w-1/4 text-slate-400 transition" data-target="market">
+                <span class="nav-pill px-5 py-1 rounded-full transition-colors"><i class="ph-bold ph-storefront text-xl"></i></span>
+                <span class="text-[10px] font-semibold mt-1">Pasar</span>
+            </button>
+            <button onclick="app.switchTab('planner')" class="nav-btn flex flex-col items-center w-1/4 text-slate-400 transition" data-target="planner">
+                <span class="nav-pill px-5 py-1 rounded-full transition-colors"><i class="ph-bold ph-magic-wand text-xl"></i></span>
+                <span class="text-[10px] font-semibold mt-1">Rekomendasi</span>
+            </button>
+            <button onclick="app.switchTab('data')" class="nav-btn flex flex-col items-center w-1/4 text-slate-400 transition" data-target="data">
+                <span class="nav-pill px-5 py-1 rounded-full transition-colors"><i class="ph-bold ph-database text-xl"></i></span>
+                <span class="text-[10px] font-semibold mt-1">Data</span>
+            </button>
+        </nav>
     </div>
-</div>
 
+    <div id="toast" class="toast">Notifikasi</div>
 
-<!-- ═══════════════════════════════════════════
-     TOOLBAR
-════════════════════════════════════════════ -->
-<div id="toolbar" class="hidden max-w-7xl mx-auto px-5 mb-6">
-    <div class="flex items-center justify-between flex-wrap gap-3">
+    <!-- ============ TEMPLATE: PROFILE ============ -->
+    <template id="view-profile">
+        <div class="space-y-5 animate-fade-in">
+            <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-2 mb-1">
+                    <i class="ph-fill ph-baby text-emerald-600 text-xl"></i>
+                    <h2 class="text-base font-bold text-slate-800">Profil Anak & Anggaran</h2>
+                </div>
+                <p class="text-xs text-slate-500 mb-4 leading-relaxed">Data ini dipakai AI untuk menghitung kebutuhan gizi harian dan mengoptimasi menu.</p>
 
-        <!-- Filter tabs -->
-        <div id="filterTabs" class="flex items-center gap-1.5 flex-wrap"></div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Umur Anak (Bulan)</label>
+                        <input type="number" id="input-age" oninput="app.autoSaveProfile()" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-500 focus:bg-white focus:outline-none transition" placeholder="Misal: 24">
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="w-1/2">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Berat (kg)</label>
+                            <input type="number" id="input-weight" oninput="app.autoSaveProfile()" step="0.1" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-500 focus:bg-white focus:outline-none transition" placeholder="10.5">
+                        </div>
+                        <div class="w-1/2">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Tinggi (cm)</label>
+                            <input type="number" id="input-height" oninput="app.autoSaveProfile()" step="0.1" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-emerald-500 focus:bg-white focus:outline-none transition" placeholder="85">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Anggaran Makan Harian</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-slate-400 text-sm font-medium">Rp</span>
+                            <input type="number" id="input-budget" oninput="app.autoSaveProfile()" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 pl-10 text-sm focus:ring-2 focus:ring-emerald-500 focus:bg-white focus:outline-none transition" placeholder="25000">
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Sort + View -->
-        <div class="flex items-center gap-2.5">
-            <select id="sortSelect"
-                class="text-sm bg-white border border-slate-200 rounded-xl px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer shadow-sm font-semibold">
-                <option value="newest">⬇ Newest</option>
-                <option value="oldest">⬆ Oldest</option>
-                <option value="az">A → Z</option>
-                <option value="za">Z → A</option>
-                <option value="largest">⬇ Largest</option>
-                <option value="smallest">⬆ Smallest</option>
-            </select>
+                <div class="mt-3 flex justify-end h-4">
+                    <span id="save-indicator" class="text-[11px] font-semibold text-emerald-600 flex items-center opacity-0 transition-opacity duration-300">
+                        <i class="ph-fill ph-check-circle mr-1"></i> Tersimpan otomatis
+                    </span>
+                </div>
+            </div>
 
-            <div class="flex items-center bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                <button id="btnGrid" class="vtbtn active" onclick="setView('grid')" title="Grid view">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
-                    </svg>
+            <div id="risk-assessment" class="hidden"></div>
+        </div>
+    </template>
+
+    <!-- ============ TEMPLATE: MARKET ============ -->
+    <template id="view-market">
+        <div class="space-y-4 animate-fade-in">
+            <div>
+                <h2 class="text-xl font-extrabold text-slate-800">Harga Pasar Lokal</h2>
+                <p class="text-sm text-slate-500">Sesuaikan harga aktual di daerah Anda agar rekomendasi tepat anggaran.</p>
+            </div>
+
+            <button onclick="app.toggleAddIngredientForm()" class="w-full bg-slate-100 text-slate-600 border border-slate-200 border-dashed py-2.5 rounded-xl font-semibold text-xs hover:bg-slate-200 transition flex justify-center items-center">
+                <i class="ph-bold ph-plus mr-1.5"></i> Tambah Bahan Baru
+            </button>
+
+            <div id="form-add-ingredient" class="hidden bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                <h3 class="text-sm font-bold text-slate-700">Input Bahan Kustom</h3>
+                <input type="text" id="custom-name" placeholder="Nama Bahan (misal: Tempe Gembus)" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-500 outline-none">
+                <div class="flex gap-2">
+                    <input type="number" id="custom-price" placeholder="Harga (Rp)" class="w-1/2 bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-500 outline-none">
+                    <select id="custom-cat" class="w-1/2 bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-emerald-500 outline-none">
+                        <option value="karbo">Karbohidrat</option>
+                        <option value="protein_hewani">Protein Hewani</option>
+                        <option value="protein_nabati">Protein Nabati</option>
+                        <option value="sayur">Sayuran</option>
+                        <option value="buah">Buah</option>
+                    </select>
+                </div>
+                <button onclick="app.saveCustomIngredient()" class="w-full bg-emerald-600 text-white py-2 rounded-xl text-xs font-bold active:scale-95">Simpan Bahan</button>
+            </div>
+
+            <div id="market-filters" class="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1"></div>
+
+            <div id="market-items" class="space-y-2.5"></div>
+        </div>
+    </template>
+
+    <!-- ============ TEMPLATE: PLANNER ============ -->
+    <template id="view-planner">
+        <div class="space-y-5 animate-fade-in">
+            <div class="bg-gradient-to-br from-emerald-600 to-teal-500 rounded-2xl p-5 text-white shadow-lg shadow-emerald-200">
+                <div class="flex items-center gap-2 mb-1">
+                    <i class="ph-fill ph-sparkle text-xl"></i>
+                    <h2 class="text-base font-bold">AI Menu Optimizer</h2>
+                </div>
+                <p class="text-xs opacity-90 mb-4 leading-relaxed">Mencari kombinasi menu terbaik untuk anggaran <span id="lbl-planner-budget" class="font-bold underline decoration-white/40"></span>.</p>
+                <button onclick="app.generatePlan()" class="w-full bg-white text-emerald-700 py-3.5 rounded-xl font-bold shadow-md active:scale-95 hover:bg-emerald-50 transition flex items-center justify-center">
+                    <i class="ph-fill ph-magic-wand mr-2 text-lg"></i> Hasilkan Rekomendasi
                 </button>
-                <button id="btnList" class="vtbtn" onclick="setView('list')" title="List view">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
             </div>
+
+            <div id="planner-results" class="hidden space-y-5"></div>
         </div>
-    </div>
-</div>
+    </template>
 
-
-<!-- ═══════════════════════════════════════════
-     MAIN
-════════════════════════════════════════════ -->
-<main class="max-w-7xl mx-auto px-5">
-
-    <!-- Skeleton -->
-    <div id="skeletonGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
-
-    <!-- Empty repo state -->
-    <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center fade-up">
-        <div class="bg-slate-100 p-6 rounded-full mb-6 border border-slate-200">
-            <svg class="w-14 h-14 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
-            </svg>
-        </div>
-        <h3 class="text-2xl font-black text-slate-900 mb-2">Repository is empty</h3>
-        <p class="text-slate-500 max-w-sm mx-auto text-sm leading-relaxed">
-            Upload <code class="bg-slate-100 px-1.5 py-0.5 rounded font-mono-data text-xs text-slate-700">.apk</code> files and update
-            <code class="bg-slate-100 px-1.5 py-0.5 rounded font-mono-data text-xs text-slate-700">APK/apps.json</code>
-            to populate the repository automatically.
-        </p>
-    </div>
-
-    <!-- No search results -->
-    <div id="noResultState" class="hidden flex-col items-center justify-center py-16 text-center fade-up">
-        <svg class="w-12 h-12 text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-        <h3 class="text-lg font-bold text-slate-700 mb-1">No results found</h3>
-        <p id="noResultMsg" class="text-slate-400 text-sm"></p>
-    </div>
-
-    <!-- Grid -->
-    <div id="appGrid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
-
-    <!-- List -->
-    <div id="appList" class="hidden flex-col gap-3"></div>
-
-</main>
-
-
-<!-- ═══════════════════════════════════════════
-     QR MODAL
-════════════════════════════════════════════ -->
-<div id="qrModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-    <div class="modal-bg absolute inset-0 bg-slate-900/55" onclick="closeQr()"></div>
-    <div class="relative bg-white rounded-2xl shadow-2xl p-7 max-w-xs w-full text-center z-10 fade-up border border-slate-200">
-        <button onclick="closeQr()" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-700 transition-colors p-1">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
-
-        <div class="flex items-center justify-center gap-2 mb-1">
-            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
-            </svg>
-            <h3 class="font-bold text-slate-900 text-sm">Scan to Download</h3>
-        </div>
-        <p id="qrAppName" class="text-xs text-slate-400 font-mono-data mb-4 truncate"></p>
-
-        <div id="qrBox" class="flex items-center justify-center p-4 bg-white border border-slate-100 rounded-xl mx-auto mb-4" style="width:fit-content; min-height:180px"></div>
-
-        <p class="text-[11px] text-slate-400 leading-relaxed">
-            Point your Android camera at the code above to install this APK directly on your device.
-        </p>
-    </div>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     GUIDE MODAL
-════════════════════════════════════════════ -->
-<div id="guideModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-    <div class="modal-bg absolute inset-0 bg-slate-900/55" onclick="closeGuide()"></div>
-    <div class="relative bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-lg w-full z-10 fade-up border border-slate-200 max-h-[90vh] overflow-y-auto text-left">
-        <button onclick="closeGuide()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 transition-colors p-1 bg-slate-100 rounded-full">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
-
-        <div class="flex items-center gap-3 mb-5">
-            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-                </svg>
-            </div>
+    <!-- ============ TEMPLATE: DATA (FIXED & COMPLETE) ============ -->
+    <template id="view-data">
+        <div class="space-y-5 animate-fade-in">
             <div>
-                <h3 class="font-extrabold text-slate-900 text-lg leading-tight">Installation Guide</h3>
-                <p class="text-xs text-slate-500 font-medium">How to install Android APKs safely</p>
+                <h2 class="text-xl font-extrabold text-slate-800">Manajemen Data</h2>
+                <p class="text-sm text-slate-500">Simpan, muat, atau bagikan data untuk penggunaan offline antar kader.</p>
             </div>
-        </div>
 
-        <p class="text-sm text-slate-600 mb-6 leading-relaxed">
-            Android includes built-in security features to prevent accidental app installations. Since our enterprise apps are distributed outside the Google Play Store, you will need to grant permission to install them.
-        </p>
+            <div id="weekly-history-container" class="space-y-3 mb-6">
+                <!-- Riwayat akan di-render lewat JS di sini -->
+            </div>
 
-        <div class="space-y-6">
-            <!-- Step 1: Unknown Sources -->
-            <div>
-                <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-2">
-                    <span class="bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[11px]">1</span>
-                    Allow "Unknown Sources"
-                </h4>
-                <div class="bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-sm text-slate-600 space-y-2">
-                    <p>When you tap the downloaded <strong>.apk</strong> file, Android may block it by default.</p>
-                    <ul class="list-disc list-inside ml-1 space-y-1 text-slate-500 text-xs">
-                        <li>Tap <strong>Settings</strong> on the security prompt.</li>
-                        <li>Toggle on <strong>"Allow from this source"</strong> (for your browser or file manager).</li>
-                        <li>Go back and tap <strong>Install</strong>.</li>
-                    </ul>
+            <!-- PDF -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                <div class="flex items-start gap-3">
+                    <div class="bg-red-50 p-2.5 rounded-xl"><i class="ph-fill ph-file-pdf text-xl text-red-500"></i></div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-sm text-slate-700">Ekspor Laporan PDF</h3>
+                        <p class="text-xs text-slate-500 mb-3">Unduh hasil rekomendasi & profil sebagai laporan.</p>
+                        <button onclick="app.exportToPDF()" class="w-full bg-slate-800 text-white py-2.5 rounded-xl font-semibold text-sm active:scale-95 hover:bg-slate-700 transition">Download Laporan (PDF)</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Step 2: Play Protect -->
-            <div>
-                <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-2">
-                    <span class="bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[11px]">2</span>
-                    Bypass Play Protect Warning
-                </h4>
-                <div class="bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-sm text-slate-600 space-y-2">
-                    <p>Google Play Protect flags apps from independent developers. You might see an <em>"Unsafe app blocked"</em> warning.</p>
-                    <ul class="list-disc list-inside ml-1 space-y-1 text-slate-500 text-xs">
-                        <li>Tap <strong>"More details"</strong> on the warning popup.</li>
-                        <li>Tap <strong>"Install anyway"</strong> to proceed securely.</li>
-                    </ul>
+            <!-- Sample -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                <div class="flex items-start gap-3">
+                    <div class="bg-amber-50 p-2.5 rounded-xl"><i class="ph-fill ph-flask text-xl text-amber-500"></i></div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-sm text-slate-700">Muat Data Sampel</h3>
+                        <p class="text-xs text-slate-500 mb-3">Simulasi balita berisiko stunting untuk uji coba AI.</p>
+                        <button onclick="app.loadSampleData()" class="w-full bg-amber-50 text-amber-700 border border-amber-200 py-2.5 rounded-xl font-semibold text-sm active:scale-95 hover:bg-amber-100 transition">Muat Data Sampel</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Step 3: Restricted Settings (Android 13+) -->
-            <div>
-                <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2 mb-2">
-                    <span class="bg-slate-400 text-white w-5 h-5 rounded-full flex items-center justify-center text-[11px]">3</span>
-                    Restricted Settings (Android 13+)
-                </h4>
-                <div class="bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-xs text-slate-500 leading-relaxed">
-                    If the app requires special permissions (like Accessibility or Notifications) and they are greyed out: Go to your device <strong>Settings</strong> &rarr; <strong>Apps</strong> &rarr; Select the app &rarr; Tap the <strong>3 dots (⋮)</strong> in the top right &rarr; Tap <strong>"Allow restricted settings"</strong>.
+            <!-- JSON Export / Import -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-4">
+                <div class="flex items-start gap-3 border-b border-slate-100 pb-4">
+                    <div class="bg-blue-50 p-2.5 rounded-xl"><i class="ph-fill ph-export text-xl text-blue-500"></i></div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-sm text-slate-700">Ekspor Data (JSON)</h3>
+                        <p class="text-xs text-slate-500 mb-3">Simpan profil & harga pasar ke file.</p>
+                        <button onclick="app.exportJSON()" class="w-full bg-blue-50 text-blue-700 border border-blue-200 py-2.5 rounded-xl font-semibold text-sm active:scale-95 hover:bg-blue-100 transition">Ekspor JSON</button>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="bg-emerald-50 p-2.5 rounded-xl"><i class="ph-fill ph-tray-arrow-down text-xl text-emerald-500"></i></div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-sm text-slate-700">Impor Data (JSON)</h3>
+                        <p class="text-xs text-slate-500 mb-3">Muat data dari file yang dibagikan.</p>
+                        <label class="block w-full bg-emerald-50 text-emerald-700 border border-emerald-200 py-2.5 rounded-xl font-semibold text-sm text-center cursor-pointer active:scale-95 hover:bg-emerald-100 transition">
+                            Pilih File JSON
+                            <input type="file" accept="application/json" class="hidden" onchange="app.importJSON(event)">
+                        </label>
+                    </div>
                 </div>
             </div>
+
+            <!-- Reset -->
+            <button onclick="app.resetData()" class="w-full text-red-600 bg-red-50 border border-red-100 py-3 rounded-2xl font-semibold text-sm active:scale-95 hover:bg-red-100 transition flex items-center justify-center">
+                <i class="ph-bold ph-trash mr-2"></i> Hapus Semua Data Lokal
+            </button>
         </div>
+    </template>
 
-        <button onclick="closeGuide()" class="w-full mt-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
-            I Understand, Close Guide
-        </button>
-    </div>
-</div>
+    <script>
+        const LOCAL_STORAGE_KEY = 'gizidesa_state_v2';
 
-<!-- ═══════════════════════════════════════════
-     TOAST CONTAINER
-════════════════════════════════════════════ -->
-<div id="toasts" class="fixed bottom-6 right-5 z-[200] flex flex-col gap-2 max-w-xs pointer-events-none"></div>
-
-
-<!-- ═══════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════ -->
-<footer class="mt-20 border-t border-slate-200 bg-white/60">
-    <div class="max-w-7xl mx-auto px-5 py-7 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-        <div class="flex items-center gap-2 font-semibold text-slate-600">
-            <div class="w-6 h-6 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-md flex items-center justify-center">
-                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-            </div>
-            AppCenter — by Angga Conni
-        </div>
-        <div class="flex items-center gap-3 text-slate-400">
-            <span>Internal Distribution</span>
-            <span>·</span>
-            <span id="footerSync">Not synced yet</span>
-        </div>
-    </div>
-</footer>
-
-
-<script>
-// ══════════════════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════════════════
-let allApps     = [];
-let renderedNow = [];   // currently displayed (for QR index lookup)
-let curView     = 'grid';
-let curFilter   = 'all';
-let curSort     = 'newest';
-
-// ══════════════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-    buildSkeletons();
-    fetchApps();
-
-    document.getElementById('searchInput').addEventListener('input', rerender);
-    document.getElementById('sortSelect').addEventListener('change', e => { curSort = e.target.value; rerender(); });
-
-    // Keyboard: / → focus search, Esc → close modal
-    document.addEventListener('keydown', e => {
-        if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
-            e.preventDefault();
-            document.getElementById('searchInput').focus();
-        }
-        if (e.key === 'Escape') { 
-            closeQr(); 
-            closeGuide(); 
-        }
-    });
-});
-
-// ══════════════════════════════════════════════════════════
-//  SKELETONS
-// ══════════════════════════════════════════════════════════
-function buildSkeletons() {
-    const g = document.getElementById('skeletonGrid');
-    for (let i = 0; i < 8; i++) {
-        g.innerHTML += `
-        <div class="bg-white border border-slate-200 rounded-2xl p-6" style="animation-delay:${i*0.05}s">
-            <div class="flex items-start justify-between mb-5">
-                <div class="skeleton w-16 h-16 rounded-xl"></div>
-                <div class="skeleton w-14 h-7 rounded-xl"></div>
-            </div>
-            <div class="skeleton w-2/3 h-5 mb-2"></div>
-            <div class="skeleton w-full h-3.5 mb-6 opacity-60"></div>
-            <div class="grid grid-cols-2 gap-3 mb-5">
-                <div class="skeleton h-14 rounded-xl"></div>
-                <div class="skeleton h-14 rounded-xl"></div>
-            </div>
-            <div class="skeleton h-10 rounded-xl w-full"></div>
-        </div>`;
-    }
-}
-
-// ══════════════════════════════════════════════════════════
-//  FETCH
-// ══════════════════════════════════════════════════════════
-async function fetchApps() {
-    try {
-        await new Promise(r => setTimeout(r, 500));
-        
-        // ✨ PERBAIKAN CACHE BUSTER DISINI ✨
-        // Menggunakan parameter timestamp '?t=' agar file apps.json selalu ditarik versi paling baru
-        const res = await fetch('APK/apps.json?t=' + new Date().getTime());
-        
-        if (!res.ok) throw new Error('not found');
-        allApps = await res.json();
-
-        document.getElementById('skeletonGrid').classList.add('hidden');
-
-        if (!allApps.length) {
-            showEl('emptyState', 'flex');
-            return;
-        }
-
-        // Stats + toolbar
-        updateStats();
-        buildFilterTabs();
-        showEl('statsStrip'); showEl('toolbar');
-        showEl('syncDot', 'flex');
-        document.getElementById('navBadge').textContent = `${allApps.length} apps`;
-        document.getElementById('navBadge').classList.remove('hidden');
-        document.getElementById('footerSync').textContent = `Last sync: ${new Date().toLocaleTimeString()}`;
-
-        rerender();
-
-    } catch (err) {
-        console.warn('apps.json unavailable', err);
-        document.getElementById('skeletonGrid').classList.add('hidden');
-        showEl('emptyState', 'flex');
-    }
-}
-
-// ══════════════════════════════════════════════════════════
-//  STATS
-// ══════════════════════════════════════════════════════════
-function updateStats() {
-    animCount('sTotalApps', allApps.length);
-
-    const total = allApps.reduce((s, a) => s + (parseFloat(a.size_mb) || 0), 0);
-    document.getElementById('sTotalSize').textContent =
-        total >= 1000 ? `${(total/1000).toFixed(1)} GB` : `${Math.round(total)} MB`;
-
-    const dates = allApps.map(a => a.update_date).filter(Boolean).sort().reverse();
-    document.getElementById('sLatest').textContent = dates[0] || '—';
-}
-
-function animCount(id, target) {
-    const el = document.getElementById(id);
-    const dur = 700, start = performance.now();
-    const tick = now => {
-        const p = Math.min((now - start) / dur, 1);
-        el.textContent = Math.floor(p * target);
-        if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-}
-
-// ══════════════════════════════════════════════════════════
-//  FILTER TABS
-// ══════════════════════════════════════════════════════════
-function buildFilterTabs() {
-    const cats = ['All', ...new Set(allApps.map(a => a.category).filter(Boolean))];
-    const wrap = document.getElementById('filterTabs');
-    wrap.innerHTML = '';
-    cats.forEach(cat => {
-        const isAll = cat === 'All';
-        const count = isAll ? allApps.length : allApps.filter(a => a.category === cat).length;
-        const btn = document.createElement('button');
-        btn.className = 'ftab' + (isAll ? ' active' : '');
-        btn.textContent = isAll ? `All  (${count})` : `${cat}  (${count})`;
-        btn.onclick = () => {
-            curFilter = isAll ? 'all' : cat;
-            wrap.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            rerender();
-        };
-        wrap.appendChild(btn);
-    });
-}
-
-// ══════════════════════════════════════════════════════════
-//  VIEW TOGGLE
-// ══════════════════════════════════════════════════════════
-function setView(v) {
-    curView = v;
-    document.getElementById('btnGrid').className = 'vtbtn' + (v === 'grid' ? ' active' : '');
-    document.getElementById('btnList').className = 'vtbtn' + (v === 'list' ? ' active' : '');
-    rerender();
-}
-
-// ══════════════════════════════════════════════════════════
-//  RERENDER
-// ══════════════════════════════════════════════════════════
-function rerender() {
-    const q = document.getElementById('searchInput').value.toLowerCase().trim();
-
-    let apps = allApps.filter(a => {
-        const s = !q ||
-            (a.app_name     || '').toLowerCase().includes(q) ||
-            (a.package_name || '').toLowerCase().includes(q) ||
-            (a.version      || '').toLowerCase().includes(q) ||
-            (a.category     || '').toLowerCase().includes(q);
-        const f = curFilter === 'all' || a.category === curFilter;
-        return s && f;
-    });
-
-    apps = sort(apps, curSort);
-    renderedNow = apps;
-
-    ['appGrid','appList','noResultState'].forEach(id => hideEl(id));
-    document.getElementById('appList').classList.remove('flex');
-
-    if (!apps.length) {
-        showEl('noResultState', 'flex');
-        document.getElementById('noResultMsg').textContent =
-            q ? `No apps matching "${q}".` : 'No apps in this category.';
-        return;
-    }
-
-    if (curView === 'grid') { showEl('appGrid');  renderGrid(apps); }
-    else                    { showEl('appList', 'flex'); renderList(apps); }
-}
-
-function sort(apps, by) {
-    return [...apps].sort((a, b) => {
-        switch (by) {
-            case 'newest':   return dateDiff(b, a);
-            case 'oldest':   return dateDiff(a, b);
-            case 'az':       return (a.app_name || '').localeCompare(b.app_name || '');
-            case 'za':       return (b.app_name || '').localeCompare(a.app_name || '');
-            case 'largest':  return parseFloat(b.size_mb) - parseFloat(a.size_mb);
-            case 'smallest': return parseFloat(a.size_mb) - parseFloat(b.size_mb);
-            default:         return 0;
-        }
-    });
-}
-function dateDiff(a, b) {
-    return new Date(a.update_date || 0) - new Date(b.update_date || 0);
-}
-
-// ══════════════════════════════════════════════════════════
-//  IS NEW (≤ 7 days)
-// ══════════════════════════════════════════════════════════
-function isNew(d) {
-    if (!d) return false;
-    return (Date.now() - new Date(d).getTime()) / 86400000 <= 7;
-}
-
-// ══════════════════════════════════════════════════════════
-//  GRID RENDER
-// ══════════════════════════════════════════════════════════
-function renderGrid(apps) {
-    const g = document.getElementById('appGrid');
-    g.innerHTML = '';
-    apps.forEach((app, i) => {
-        const absUrl  = toAbsUrl(app.download_path);
-        const newBadge  = isNew(app.update_date)
-            ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</span>` : '';
-        const catBadge  = app.category
-            ? `<span class="bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">${esc(app.category)}</span>` : '';
-        const sdkRow    = app.min_sdk
-            ? `<div class="flex items-center gap-1.5 mb-4 text-xs text-slate-500">
-                  <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/>
-                  </svg>
-                  Min Android <strong>${esc(app.min_sdk)}</strong>
-              </div>` : '';
-        const shaRow    = app.sha256
-            ? `<div class="flex items-center gap-1.5 mb-3">
-                  <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-[10px] font-mono-data text-emerald-600 truncate">${app.sha256.substring(0,18)}…</span>
-              </div>` : '';
-
-        const card = document.createElement('div');
-        card.className = 'app-card rounded-2xl p-6 flex flex-col justify-between fade-up';
-        card.style.animationDelay = `${i * 0.045}s`;
-        card.dataset.idx = i;
-
-        card.innerHTML = `
-          <div>
-            <!-- Icon + version -->
-            <div class="flex items-start justify-between mb-4">
-              <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
-                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=128'"
-                class="w-16 h-16 rounded-xl object-cover border border-slate-200 bg-white shadow-sm">
-              <div class="flex flex-col items-end gap-1.5">
-                <span class="font-mono-data bg-blue-50 border border-blue-100 text-xs font-bold px-2.5 py-1 rounded-lg text-blue-700">v${esc(app.version)}</span>
-                <div class="flex items-center gap-1 flex-wrap justify-end">${newBadge}${catBadge}</div>
-              </div>
-            </div>
-
-            <!-- Name + package -->
-            <h3 class="text-[15px] font-extrabold text-slate-900 mb-0.5 truncate" title="${esc(app.app_name)}">${esc(app.app_name)}</h3>
-            <p class="text-xs text-slate-400 font-mono-data truncate mb-4" title="${esc(app.package_name)}">${esc(app.package_name)}</p>
-
-            <!-- Size + date -->
-            <div class="grid grid-cols-2 gap-2 mb-4">
-              <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 text-center">
-                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Size</p>
-                <p class="text-sm font-extrabold text-slate-700">${esc(app.size_mb)} MB</p>
-              </div>
-              <div class="bg-slate-50 rounded-xl p-3 border border-slate-100 text-center">
-                <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-0.5">Updated</p>
-                <p class="text-xs font-extrabold text-slate-700 truncate">${esc(app.update_date)}</p>
-              </div>
-            </div>
-
-            ${sdkRow}${shaRow}
-          </div>
-
-          <!-- Actions -->
-          <div class="flex items-center gap-2 mt-1">
-            <a href="${esc(app.download_path)}" download
-              class="dl-btn flex-1 text-center py-2.5 rounded-xl text-sm flex items-center justify-center gap-2"
-              onclick="toast('⬇ Downloading ${esc(app.app_name).replace(/'/g,'\\&#39;')}…','info')">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
-              Download
-            </a>
-
-            <!-- Copy link -->
-            <button class="reveal-btn icon-btn" title="Copy download link" onclick="copyLink('${absUrl}')">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
-              </svg>
-            </button>
-
-            <!-- QR -->
-            <button class="reveal-btn icon-btn icon-qr" title="QR code" onclick="openQr(${i})">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
-              </svg>
-            </button>
-          </div>
-        `;
-        g.appendChild(card);
-    });
-}
-
-// ══════════════════════════════════════════════════════════
-//  LIST RENDER
-// ══════════════════════════════════════════════════════════
-function renderList(apps) {
-    const l = document.getElementById('appList');
-    l.innerHTML = '';
-    apps.forEach((app, i) => {
-        const absUrl  = toAbsUrl(app.download_path);
-        const newBadge = isNew(app.update_date)
-            ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">NEW</span>` : '';
-
-        const row = document.createElement('div');
-        row.className = 'list-row flex items-center gap-4 px-5 py-4 fade-up';
-        row.style.animationDelay = `${i * 0.03}s`;
-        row.innerHTML = `
-          <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
-            onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=64'"
-            class="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0">
-
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 flex-wrap">
-              <h3 class="font-extrabold text-slate-900 text-sm">${esc(app.app_name)}</h3>
-              ${newBadge}
-              <span class="font-mono-data text-xs text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">v${esc(app.version)}</span>
-              ${app.category ? `<span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">${esc(app.category)}</span>` : ''}
-            </div>
-            <p class="text-xs text-slate-400 font-mono-data truncate mt-0.5">${esc(app.package_name)}</p>
-          </div>
-
-          <div class="hidden sm:flex items-center gap-6 text-xs text-slate-500 shrink-0">
-            <div class="text-center">
-              <p class="font-extrabold text-slate-700">${esc(app.size_mb)} MB</p>
-              <p class="text-slate-400 text-[10px]">Size</p>
-            </div>
-            <div class="text-center">
-              <p class="font-extrabold text-slate-700">${esc(app.update_date)}</p>
-              <p class="text-slate-400 text-[10px]">Updated</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="copyLink('${absUrl}')" title="Copy link"
-              class="hidden sm:flex p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
-              </svg>
-            </button>
-            <button onclick="openQr(${i})" title="QR code"
-              class="hidden sm:flex p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
-              </svg>
-            </button>
-            <a href="${esc(app.download_path)}" download
-              onclick="toast('⬇ Downloading…','info')"
-              class="dl-btn font-bold text-xs py-2 px-4 rounded-xl flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
-              Download
-            </a>
-          </div>
-        `;
-        l.appendChild(row);
-    });
-}
-
-// ══════════════════════════════════════════════════════════
-//  QR MODAL
-// ══════════════════════════════════════════════════════════
-function openQr(idx) {
-    const app = renderedNow[idx];
-    if (!app) return;
-    const absUrl = toAbsUrl(app.download_path);
-
-    document.getElementById('qrAppName').textContent = app.app_name;
-    const box = document.getElementById('qrBox');
-    box.innerHTML = '';
-
-    if (typeof QRCode !== 'undefined') {
-        new QRCode(box, {
-            text: absUrl, width: 200, height: 200,
-            colorDark: '#0f172a', colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.M
+        const getInitialState = () => ({
+            history: [], 
+            profile: {
+                age: '', weight: '', height: '', budget: '',
+                lat: null, lng: null, locationName: 'Belum diatur'
+            },
+           // Nutrisi per 100g => cal:kkal, p:protein(g), f:lemak(g), c:karbohidrat(g), a:vitA(mcg), z:zinc(mg), fe:zat besi(mg), ca:kalsium(mg), vitc:vitC(mg)
+            market: [
+                { id: 'beras',    name: 'Beras Putih',      unit: '1 kg',           price: 15000, qty_g: 1000, cat: 'karbo',           nut: { cal: 360, p: 8.4,  f: 1.7,  c: 77.1, a: 0,    z: 1.1,  fe: 1.2, ca: 3,    vitc: 0 } },
+                { id: 'singkong', name: 'Singkong',         unit: '1 kg',           price: 6000,  qty_g: 1000, cat: 'karbo',           nut: { cal: 160, p: 1.4,  f: 0.3,  c: 38.0, a: 1,    z: 0.3,  fe: 0.3, ca: 33,   vitc: 30 } },
+                { id: 'ubi',      name: 'Ubi Jalar',        unit: '1 kg',           price: 8000,  qty_g: 1000, cat: 'karbo',           nut: { cal: 86,  p: 1.6,  f: 0.1,  c: 20.1, a: 709,  z: 0.3,  fe: 0.6, ca: 30,   vitc: 2.4 } },
+                { id: 'jagung',   name: 'Jagung Manis',     unit: '1 kg',           price: 9000,  qty_g: 1000, cat: 'karbo',           nut: { cal: 86,  p: 3.3,  f: 1.4,  c: 18.7, a: 10,   z: 0.5,  fe: 0.5, ca: 2,    vitc: 6.8 } },
+                { id: 'kentang',  name: 'Kentang',          unit: '1 kg',           price: 14000, qty_g: 1000, cat: 'karbo',           nut: { cal: 77,  p: 2.0,  f: 0.1,  c: 17.5, a: 0,    z: 0.3,  fe: 0.8, ca: 12,   vitc: 19.7 } },
+                { id: 'tempe',    name: 'Tempe Kedelai',    unit: 'Papan (250g)',   price: 5000,  qty_g: 250,  cat: 'protein_nabati',  nut: { cal: 192, p: 19.0, f: 10.8, c: 7.6,  a: 0,    z: 1.8,  fe: 2.7, ca: 111,  vitc: 0 } },
+                { id: 'tahu',     name: 'Tahu Putih',       unit: 'Bungkus (300g)', price: 4000,  qty_g: 300,  cat: 'protein_nabati',  nut: { cal: 76,  p: 8.0,  f: 4.8,  c: 1.9,  a: 0,    z: 0.8,  fe: 1.5, ca: 223,  vitc: 0.1 } },
+                { id: 'kchijau',  name: 'Kacang Hijau',     unit: '500 g',          price: 12000, qty_g: 500,  cat: 'protein_nabati',  nut: { cal: 347, p: 22.0, f: 1.2,  c: 62.9, a: 0,    z: 2.7,  fe: 6.7, ca: 125,  vitc: 3 } },
+                { id: 'telur',    name: 'Telur Ayam',       unit: '1 kg (16 btr)',  price: 28000, qty_g: 1000, cat: 'protein_hewani',  nut: { cal: 155, p: 12.6, f: 10.6, c: 1.1,  a: 160,  z: 1.3,  fe: 1.2, ca: 50,   vitc: 0 } },
+                { id: 'lele',     name: 'Ikan Lele Segar',  unit: '1 kg',           price: 26000, qty_g: 1000, cat: 'protein_hewani',  nut: { cal: 105, p: 18.0, f: 2.9,  c: 0,    a: 50,   z: 1.1,  fe: 1.0, ca: 14,   vitc: 0 } },
+                { id: 'kembung',  name: 'Ikan Kembung',     unit: '1 kg',           price: 35000, qty_g: 1000, cat: 'protein_hewani',  nut: { cal: 112, p: 21.0, f: 2.3,  c: 0,    a: 30,   z: 0.8,  fe: 1.5, ca: 20,   vitc: 0 } },
+                { id: 'teri',     name: 'Ikan Teri Kering', unit: '250 g',          price: 18000, qty_g: 250,  cat: 'protein_hewani',  nut: { cal: 170, p: 33.0, f: 3.0,  c: 0,    a: 30,   z: 1.7,  fe: 3.0, ca: 1200, vitc: 0 } },
+                { id: 'ayam',     name: 'Daging Ayam',      unit: '1 kg',           price: 38000, qty_g: 1000, cat: 'protein_hewani',  nut: { cal: 215, p: 18.0, f: 15.0, c: 0,    a: 30,   z: 1.0,  fe: 0.7, ca: 14,   vitc: 0 } },
+                { id: 'hati',     name: 'Hati Ayam',        unit: '500 g',          price: 16000, qty_g: 500,  cat: 'protein_hewani',  nut: { cal: 165, p: 27.0, f: 5.0,  c: 1.0,  a: 3300, z: 4.0,  fe: 9.0, ca: 8,    vitc: 18 } },
+                { id: 'kelor',    name: 'Daun Kelor',       unit: 'Ikat (100g)',    price: 2000,  qty_g: 100,  cat: 'sayur',           nut: { cal: 64,  p: 6.7,  f: 1.7,  c: 14.3, a: 678,  z: 0.6,  fe: 4.0, ca: 440,  vitc: 220 } },
+                { id: 'bayam',    name: 'Bayam',            unit: 'Ikat (200g)',    price: 3000,  qty_g: 200,  cat: 'sayur',           nut: { cal: 23,  p: 2.9,  f: 0.4,  c: 3.6,  a: 469,  z: 0.5,  fe: 2.7, ca: 99,   vitc: 28 } },
+                { id: 'wortel',   name: 'Wortel',           unit: '500 g',          price: 7000,  qty_g: 500,  cat: 'sayur',           nut: { cal: 41,  p: 1.0,  f: 0.2,  c: 9.6,  a: 835,  z: 0.2,  fe: 0.3, ca: 33,   vitc: 5.9 } },
+                { id: 'kangkung', name: 'Kangkung',         unit: 'Ikat (200g)',    price: 2500,  qty_g: 200,  cat: 'sayur',           nut: { cal: 19,  p: 2.6,  f: 0.2,  c: 3.1,  a: 315,  z: 0.4,  fe: 2.5, ca: 73,   vitc: 32 } },
+                { id: 'brokoli',  name: 'Brokoli',          unit: '250 g',          price: 9000,  qty_g: 250,  cat: 'sayur',           nut: { cal: 34,  p: 2.8,  f: 0.4,  c: 6.6,  a: 31,   z: 0.4,  fe: 0.7, ca: 47,   vitc: 89 } },
+                { id: 'pisang',   name: 'Pisang',           unit: '1 sisir (1kg)',  price: 18000, qty_g: 1000, cat: 'buah',            nut: { cal: 89,  p: 1.1,  f: 0.3,  c: 22.8, a: 3,    z: 0.15, fe: 0.3, ca: 5,    vitc: 8.7 } },
+                { id: 'pepaya',   name: 'Pepaya',           unit: '1 buah (1kg)',   price: 10000, qty_g: 1000, cat: 'buah',            nut: { cal: 43,  p: 0.5,  f: 0.3,  c: 10.8, a: 47,   z: 0.1,  fe: 0.3, ca: 20,   vitc: 62 } },
+                { id: 'jeruk',    name: 'Jeruk',            unit: '1 kg',           price: 20000, qty_g: 1000, cat: 'buah',            nut: { cal: 47,  p: 0.9,  f: 0.1,  c: 11.8, a: 11,   z: 0.1,  fe: 0.1, ca: 40,   vitc: 53 } },
+                { id: 'susu',     name: 'Susu UHT',         unit: '1 Liter',        price: 19000, qty_g: 1000, cat: 'susu',            nut: { cal: 61,  p: 3.2,  f: 3.3,  c: 4.8,  a: 46,   z: 0.4,  fe: 0.03,ca: 113,  vitc: 0 } },
+                { id: 'minyak',   name: 'Minyak Goreng',    unit: '1 Liter',        price: 16000, qty_g: 900,  cat: 'lemak',           nut: { cal: 884, p: 0,    f: 100,  c: 0,    a: 0,    z: 0,    fe: 0,   ca: 0,    vitc: 0 } }
+            ]
         });
-    } else {
-        box.innerHTML = `<p class="text-xs text-slate-400 p-8 text-center">QR library unavailable.<br>
-            <a href="${absUrl}" class="text-blue-500 underline break-all text-[11px]">${absUrl}</a></p>`;
-    }
 
-    document.getElementById('qrModal').classList.remove('hidden');
-}
-function closeQr() {
-    document.getElementById('qrModal').classList.add('hidden');
-}
+        const CATEGORIES = {
+            all:            { lbl: 'Semua',          icon: 'ph-squares-four' },
+            karbo:          { lbl: 'Karbohidrat',    icon: 'ph-grains' },
+            protein_hewani: { lbl: 'Protein Hewani', icon: 'ph-fish-simple' },
+            protein_nabati: { lbl: 'Protein Nabati', icon: 'ph-plant' },
+            sayur:          { lbl: 'Sayur',          icon: 'ph-carrot' },
+            buah:           { lbl: 'Buah',           icon: 'ph-orange-slice' },
+            susu:           { lbl: 'Susu',           icon: 'ph-baby-bottle' },
+            lemak:          { lbl: 'Lemak',          icon: 'ph-drop' }
+        };
 
-// ══════════════════════════════════════════════════════════
-//  COPY LINK
-// ══════════════════════════════════════════════════════════
-async function copyLink(url) {
-    try {
-        await navigator.clipboard.writeText(url);
-        toast('✅ Download link copied!', 'success');
-    } catch {
-        toast('⚠ Could not copy — check browser permissions', 'warning');
-    }
-}
-// ══════════════════════════════════════════════════════════
-//  GUIDE MODAL
-// ══════════════════════════════════════════════════════════
-function openGuide() {
-    document.getElementById('guideModal').classList.remove('hidden');
-}
-function closeGuide() {
-    document.getElementById('guideModal').classList.add('hidden');
-}
+        const CAT_ICON = (cat) => (CATEGORIES[cat] && CATEGORIES[cat].icon) || 'ph-package';
 
-// ══════════════════════════════════════════════════════════
-//  TOAST
-// ══════════════════════════════════════════════════════════
-function toast(msg, type = 'info') {
-    const colors = { success: 'bg-emerald-600', info: 'bg-blue-600', warning: 'bg-amber-500' };
-    const t = document.createElement('div');
-    t.className = `toast-in pointer-events-auto ${colors[type] || colors.info} text-white text-sm font-semibold px-4 py-3 rounded-xl shadow-lg flex items-center gap-2`;
-    t.textContent = msg;
-    document.getElementById('toasts').appendChild(t);
-    setTimeout(() => { t.classList.replace('toast-in','toast-out'); setTimeout(() => t.remove(), 280); }, 2800);
-}
+        const RECIPE_DB = [
+            { id: 'r1', name: 'Nasi + Lele Goreng + Sayur Kelor', ingredients: [{id:'beras',g:100},{id:'lele',g:80},{id:'kelor',g:50},{id:'minyak',g:15}],
+              tips: "Pisahkan tulang lele dengan teliti. Cincang halus daun kelor & campur ke nasi bila anak sulit makan sayur." },
+            { id: 'r2', name: 'Nasi + Telur Dadar Kelor', ingredients: [{id:'beras',g:100},{id:'telur',g:60},{id:'kelor',g:30},{id:'minyak',g:10}],
+              tips: "Cincang kelor ke kocokan telur dadar — cara efektif 'menyembunyikan' sayur bagi picky eater." },
+            { id: 'r3', name: 'Singkong Rebus + Tempe Bumbu Kuning', ingredients: [{id:'singkong',g:150},{id:'tempe',g:50},{id:'minyak',g:10}],
+              tips: "Ganti nasi sesekali dengan singkong untuk diversifikasi pangan. Tempe baik untuk pencernaan anak." },
+            { id: 'r4', name: 'Nasi + Tahu Kukus + Sayur Bayam', ingredients: [{id:'beras',g:100},{id:'tahu',g:100},{id:'bayam',g:100}],
+              tips: "Tahu kukus lembut & mudah dikunyah balita. Beri kuah bayam untuk hidrasi ekstra." },
+            { id: 'r5', name: 'Nasi + Orek Tempe + Telur Rebus', ingredients: [{id:'beras',g:100},{id:'tempe',g:75},{id:'telur',g:60},{id:'minyak',g:5}],
+              tips: "Kombinasi protein nabati & hewani memaksimalkan asam amino esensial pencegah stunting." },
+            { id: 'r6', name: 'Nasi Tim Hati Ayam + Wortel', ingredients: [{id:'beras',g:90},{id:'hati',g:50},{id:'wortel',g:50},{id:'minyak',g:5}],
+              tips: "Hati ayam sangat tinggi zat besi & Vitamin A — sangat dianjurkan untuk anak anemia/stunting." },
+            { id: 'r7', name: 'Bubur Kacang Hijau + Susu', ingredients: [{id:'kchijau',g:60},{id:'susu',g:100}],
+              tips: "Selingan padat gizi. Kacang hijau kaya zat besi & folat untuk pertumbuhan." },
+            { id: 'r8', name: 'Nasi + Ayam Suwir + Brokoli', ingredients: [{id:'beras',g:100},{id:'ayam',g:70},{id:'brokoli',g:60},{id:'minyak',g:8}],
+              tips: "Suwir ayam halus agar mudah ditelan. Brokoli sumber vitamin C penambah penyerapan zat besi." },
+            { id: 'r9', name: 'Nasi + Pepes Ikan Kembung + Kangkung', ingredients: [{id:'beras',g:100},{id:'kembung',g:80},{id:'kangkung',g:80}],
+              tips: "Ikan kembung kaya omega-3 untuk perkembangan otak. Pepes lebih sehat daripada digoreng." },
+            { id: 'r10', name: 'Ubi Rebus + Telur Rebus + Pisang', ingredients: [{id:'ubi',g:150},{id:'telur',g:55},{id:'pisang',g:80}],
+              tips: "Menu sarapan murah meriah & padat energi. Ubi sumber Vitamin A & serat." },
+            { id: 'r11', name: 'Nasi + Teri Goreng + Tahu + Bayam', ingredients: [{id:'beras',g:100},{id:'teri',g:30},{id:'tahu',g:60},{id:'bayam',g:60},{id:'minyak',g:8}],
+              tips: "Ikan teri (dimakan dengan tulang) sumber kalsium luar biasa untuk pertumbuhan tulang." },
+            { id: 'r12', name: 'Jagung Rebus + Tempe + Pepaya', ingredients: [{id:'jagung',g:150},{id:'tempe',g:50},{id:'pepaya',g:100},{id:'minyak',g:5}],
+              tips: "Pepaya membantu pencernaan & kaya Vitamin A. Cocok sebagai selingan bergizi." }
+        ];
 
-// ══════════════════════════════════════════════════════════
-//  HELPERS
-// ══════════════════════════════════════════════════════════
-function toAbsUrl(path) {
-    if (!path) return window.location.href;
-    try { return new URL(path, window.location.href).href; }
-    catch { return path; }
-}
-function esc(str) {
-    if (!str && str !== 0) return '';
-    return String(str)
-        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-        .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-}
-function showEl(id, display = 'block') {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.remove('hidden');
-    if (display === 'flex') el.classList.add('flex');
-}
-function hideEl(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add('hidden');
-    el.classList.remove('flex');
-}
-</script>
+        class GiziDesaApp {
+            constructor() {
+                this.state = this.loadState();
+                this.currentTab = 'profile';
+                this.marketFilter = 'all';
+                this.init();
+            }
 
-<style>
-/* ── Icon action buttons ── */
-.icon-btn {
-    padding: 9px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    color: var(--text-3);
-    background: transparent;
-    transition: all 0.18s;
-    display: flex; align-items: center; justify-content: center;
-}
-.icon-btn:hover     { color: var(--primary); border-color: #bfdbfe; background: #eff6ff; }
-.icon-btn.icon-qr:hover { color: var(--accent); border-color: #c7d2fe; background: #eef2ff; }
+            loadState() {
+                const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+                if (saved) {
+                    try {
+                        const parsed = JSON.parse(saved);
+                        // Merge market baru kalau jumlah item bertambah (versi upgrade)
+                        const init = getInitialState();
+                        if (!parsed.market || parsed.market.length < init.market.length) {
+                            const priceMap = {};
+                            (parsed.market || []).forEach(m => priceMap[m.id] = m.price);
+                            parsed.market = init.market.map(m => ({ ...m, price: priceMap[m.id] ?? m.price }));
+                        }
+                        return parsed;
+                    } catch (e) { console.error("Corrupted storage", e); }
+                }
+                return getInitialState();
+            }
 
-/* ── Grid helper ── */
-#appGrid  { display: none; }
-#appGrid:not(.hidden) { display: grid; }
-#appList  { display: none; }
-#appList:not(.hidden) { display: flex; }
-</style>
+            saveState() { localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.state)); }
 
+            init() {
+                this.switchTab('profile');
+                this.updateGPSUI();
+            }
+
+            switchTab(tabId) {
+                this.currentTab = tabId;
+                const main = document.getElementById('main-content');
+                const template = document.getElementById(`view-${tabId}`);
+                if (template) {
+                    main.innerHTML = '';
+                    main.appendChild(template.content.cloneNode(true));
+                    main.scrollTop = 0;
+                    this.afterRender(tabId);
+                }
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.target === tabId);
+                });
+            }
+
+            afterRender(tabId) {
+                if (tabId === 'profile') {
+                    document.getElementById('input-age').value = this.state.profile.age || '';
+                    document.getElementById('input-weight').value = this.state.profile.weight || '';
+                    document.getElementById('input-height').value = this.state.profile.height || '';
+                    document.getElementById('input-budget').value = this.state.profile.budget || '';
+                    this.evaluateRisk();
+                } else if (tabId === 'market') {
+                    this.renderMarketFilters();
+                    this.renderMarketList();
+                } else if (tabId === 'planner') {
+                    document.getElementById('lbl-planner-budget').textContent = this.formatIDR(this.state.profile.budget);
+                } else if (tabId === 'data') {
+                    this.renderHistory(); // <-- Tambahkan baris ini
+                }
+            }
+
+            formatIDR(num) {
+                return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num || 0);
+            }
+
+            showToast(msg) {
+                const toast = document.getElementById('toast');
+                toast.textContent = msg;
+                toast.classList.add('show');
+                clearTimeout(this.toastTimeout);
+                this.toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            getLocation() {
+                if ("geolocation" in navigator) {
+                    this.showToast("Mencari lokasi...");
+                    navigator.geolocation.getCurrentPosition((pos) => {
+                        this.state.profile.lat = pos.coords.latitude;
+                        this.state.profile.lng = pos.coords.longitude;
+                        this.state.profile.locationName = "Lokasi Tersimpan";
+                        this.saveState();
+                        this.updateGPSUI();
+                        this.showToast("Lokasi berhasil disimpan!");
+                    }, () => {
+                        this.showToast("Gagal mengambil GPS. Pastikan izin lokasi aktif.");
+                    }, { enableHighAccuracy: false, timeout: 5000 });
+                } else {
+                    this.showToast("Browser tidak mendukung geolokasi.");
+                }
+            }
+
+            updateGPSUI() {
+                const el = document.getElementById('gps-status');
+                if (this.state.profile.lat) {
+                    // Jika ada data GPS, tampilkan Tersimpan
+                    el.innerHTML = `<i class="ph-fill ph-check-circle text-base"></i> <span class="text-xs font-semibold">Tersimpan</span>`;
+                } else {
+                    // Jika kosong/direset, kembalikan ke Set Lokasi
+                    el.innerHTML = `<i class="ph ph-map-pin text-base"></i> <span class="text-xs font-semibold">Set Lokasi</span>`;
+                }
+            }
+
+            autoSaveProfile() {
+                const age = parseInt(document.getElementById('input-age').value) || 0;
+                const weight = parseFloat(document.getElementById('input-weight').value) || 0;
+                const height = parseFloat(document.getElementById('input-height').value) || 0;
+                const budget = parseInt(document.getElementById('input-budget').value) || 0;
+                this.state.profile = { ...this.state.profile, age, weight, height, budget };
+                this.saveState();
+                this.evaluateRisk();
+                const indicator = document.getElementById('save-indicator');
+                if (indicator) {
+                    indicator.classList.remove('opacity-0');
+                    clearTimeout(this.saveTimeout);
+                    this.saveTimeout = setTimeout(() => indicator.classList.add('opacity-0'), 2000);
+                }
+            }
+
+            evaluateRisk() {
+                const { age, height } = this.state.profile;
+                const riskDiv = document.getElementById('risk-assessment');
+                if (!riskDiv || !age) return;
+
+                const expectedHeight = 50 + (age * 1.5);
+                riskDiv.classList.remove('hidden');
+                riskDiv.classList.add('animate-pop');
+
+                let title, text, badges, theme, icon;
+                if (height && height < expectedHeight * 0.9) {
+                    theme = { box: 'bg-red-50 border-red-200', title: 'text-red-800', iconC: 'text-red-500' };
+                    icon = 'ph-warning-circle';
+                    title = 'Indikasi Risiko Stunting';
+                    text = `Pada usia <b>${age} bulan</b> dengan tinggi <b>${height} cm</b>, anak berada di bawah kurva pertumbuhan rata-rata. AI akan memprioritaskan resep tinggi <b>Protein hewani</b> & <b>Zinc</b>.`;
+                    badges = [
+                        { lbl: 'Target: Protein Hewani', cl: 'bg-red-100 text-red-800 border-red-200' },
+                        { lbl: 'Target: Zinc', cl: 'bg-amber-100 text-amber-800 border-amber-200' },
+                        { lbl: 'Target: Zat Besi', cl: 'bg-orange-100 text-orange-800 border-orange-200' }
+                    ];
+                } else {
+                    theme = { box: 'bg-emerald-50 border-emerald-200', title: 'text-emerald-800', iconC: 'text-emerald-500' };
+                    icon = 'ph-check-circle';
+                    title = 'Pertumbuhan Normal';
+                    text = `Pertumbuhan anak terpantau normal. AI akan menyusun menu seimbang untuk menjaga imunitas & energi.`;
+                    badges = [{ lbl: 'Pemeliharaan Gizi Seimbang', cl: 'bg-emerald-100 text-emerald-800 border-emerald-200' }];
+                }
+
+                riskDiv.className = `border rounded-2xl p-4 shadow-sm ${theme.box}`;
+                riskDiv.innerHTML = `
+                    <h3 class="font-bold ${theme.title} mb-2 flex items-center text-sm">
+                        <i class="ph-fill ${icon} ${theme.iconC} mr-2 text-xl"></i> ${title}
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">${text}</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        ${badges.map(b => `<span class="text-[10px] font-bold px-2.5 py-1 rounded-full border ${b.cl}">${b.lbl}</span>`).join('')}
+                    </div>`;
+            }
+
+            renderMarketFilters() {
+                const container = document.getElementById('market-filters');
+                if (!container) return;
+                container.innerHTML = '';
+                Object.keys(CATEGORIES).forEach(key => {
+                    const c = CATEGORIES[key];
+                    const active = this.marketFilter === key;
+                    const btn = document.createElement('button');
+                    btn.className = `shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold border transition ${active ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-slate-600 border-slate-200'}`;
+                    btn.innerHTML = `<i class="ph-bold ${c.icon}"></i> ${c.lbl}`;
+                    btn.onclick = () => { this.marketFilter = key; this.renderMarketFilters(); this.renderMarketList(); };
+                    container.appendChild(btn);
+                });
+            }
+
+            renderMarketList() {
+                const container = document.getElementById('market-items');
+                if (!container) return;
+                container.innerHTML = '';
+
+                const items = this.state.market.filter(m => this.marketFilter === 'all' || m.cat === this.marketFilter);
+                if (items.length === 0) {
+                    container.innerHTML = `<p class="text-center text-sm text-slate-400 py-8">Tidak ada bahan di kategori ini.</p>`;
+                    return;
+                }
+
+                items.forEach(item => {
+                    const realIndex = this.state.market.findIndex(m => m.id === item.id);
+                    const div = document.createElement('div');
+                    div.className = "bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex justify-between items-center animate-fade-in";
+                    div.innerHTML = `
+                        <div class="flex items-center min-w-0">
+                            <div class="bg-emerald-50 p-2.5 rounded-xl mr-3 shrink-0">
+                                <i class="ph-fill ${CAT_ICON(item.cat)} text-xl text-emerald-600"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="font-semibold text-sm text-slate-800 truncate">${item.name}</p>
+                                <p class="text-xs text-slate-400">Per ${item.unit}</p>
+                            </div>
+                        </div>
+                        <div class="w-28 shrink-0">
+                            <div class="relative">
+                                <span class="absolute left-2.5 top-2.5 text-slate-400 text-xs font-medium">Rp</span>
+                                <input type="number" inputmode="numeric"
+                                    class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 pl-7 text-xs font-semibold text-right focus:ring-2 focus:ring-emerald-500 focus:bg-white focus:outline-none transition"
+                                    value="${item.price}"
+                                    onchange="app.updatePrice(${realIndex}, this.value)">
+                            </div>
+                        </div>`;
+                    container.appendChild(div);
+                });
+            }
+
+            updatePrice(index, newPrice) {
+                const val = parseInt(newPrice);
+                if (val >= 0) { this.state.market[index].price = val; this.saveState(); }
+            }
+
+            // TAMBAHKAN KODE INI
+            toggleAddIngredientForm() {
+                const form = document.getElementById('form-add-ingredient');
+                if (form) form.classList.toggle('hidden');
+            }
+
+            saveCustomIngredient() {
+                const name = document.getElementById('custom-name').value;
+                const price = parseInt(document.getElementById('custom-price').value);
+                const cat = document.getElementById('custom-cat').value;
+
+                if (!name || !price) {
+                    this.showToast("Nama dan harga wajib diisi!");
+                    return;
+                }
+
+                // Tambahkan bahan baru dengan nutrisi default (bisa diedit di versi lanjut)
+                const newItem = {
+                    id: 'custom_' + Date.now(),
+                    name: name,
+                    unit: 'Sesuai Harga', // Unit dinamis
+                    price: price,
+                    qty_g: 100, // Basis 100g
+                    cat: cat,
+                    nut: { cal: 100, p: 5, f: 2, c: 10, a: 10, z: 0.5, fe: 1.0, ca: 10, vitc: 5 } // Nutrisi estimasi dasar
+                };
+
+                this.state.market.unshift(newItem); // Masukkan ke paling atas
+                this.saveState();
+                
+                // Reset form
+                document.getElementById('custom-name').value = '';
+                document.getElementById('custom-price').value = '';
+                this.toggleAddIngredientForm();
+                
+                this.renderMarketList();
+                this.showToast(`${name} berhasil ditambahkan!`);
+            }
+
+            getTargetNutrition() {
+                const age = this.state.profile.age;
+                
+                // Standar Angka Kecukupan Gizi (AKG) Kemenkes RI Tahun 2019
+                // cal: Kalori(kkal), p: Protein(g), f: Lemak(g), c: Karbo(g)
+                // a: Vit A(mcg), z: Zinc(mg), fe: Zat Besi(mg), ca: Kalsium(mg), vitc: Vit C(mg)
+                
+                if (age < 6) {
+                    // 0 - 5 Bulan (Fase ASI Eksklusif)
+                    return { cal: 550, p: 9, f: 31, c: 59, a: 375, z: 1.5, fe: 0.3, ca: 200, vitc: 40 };
+                } 
+                else if (age >= 6 && age <= 11) {
+                    // 6 - 11 Bulan (Fase MPASI Awal) - Zat Besi butuh sangat tinggi!
+                    return { cal: 800, p: 15, f: 35, c: 105, a: 400, z: 3.0, fe: 11.0, ca: 270, vitc: 50 };
+                } 
+                else if (age >= 12 && age <= 36) {
+                    // 1 - 3 Tahun (Batita)
+                    return { cal: 1050, p: 20, f: 45, c: 215, a: 400, z: 3.0, fe: 7.0, ca: 650, vitc: 40 };
+                } 
+                else {
+                    // 4 - 6 Tahun (Prasekolah)
+                    return { cal: 1400, p: 25, f: 50, c: 220, a: 450, z: 5.0, fe: 10.0, ca: 1000, vitc: 45 };
+                }
+            }
+
+            calculateRecipeStats(recipe) {
+                let totalCost = 0;
+                let totalNut = { cal: 0, p: 0, f: 0, c: 0, a: 0, z: 0, fe: 0, ca: 0, vitc: 0 };
+                recipe.ingredients.forEach(ing => {
+                    const m = this.state.market.find(x => x.id === ing.id);
+                    if (m) {
+                        totalCost += (ing.g / m.qty_g) * m.price;
+                        const mul = ing.g / 100;
+                        totalNut.cal += m.nut.cal * mul;
+                        totalNut.p   += m.nut.p   * mul;
+                        totalNut.f   += (m.nut.f || 0) * mul;
+                        totalNut.c   += (m.nut.c || 0) * mul;
+                        totalNut.a   += m.nut.a   * mul;
+                        totalNut.z   += m.nut.z   * mul;
+                        totalNut.fe  += m.nut.fe  * mul;
+                        totalNut.ca  += (m.nut.ca || 0) * mul;
+                        totalNut.vitc+= (m.nut.vitc || 0) * mul;
+                    }
+                });
+                return { cost: totalCost, nut: totalNut };
+            }
+
+            generatePlan() {
+                const resultsArea = document.getElementById('planner-results');
+                resultsArea.classList.remove('hidden');
+                resultsArea.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-12 text-center">
+                        <div class="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full mb-4"></div>
+                        <p class="text-sm font-medium text-slate-500">AI menghitung kombinasi gizi terbaik...</p>
+                    </div>`;
+                setTimeout(() => this.executeOptimizationAlgorithm(), 800);
+            }
+
+            executeOptimizationAlgorithm() {
+                const budget = this.state.profile.budget;
+                const targetNut = this.getTargetNutrition();
+                const analyzed = RECIPE_DB.map(r => ({ ...r, ...this.calculateRecipeStats(r) }));
+
+                let bestMenu = null, bestScore = -1, bestStats = null;
+
+                for (let i=0;i<analyzed.length;i++)
+                    for (let j=i+1;j<analyzed.length;j++)
+                        for (let k=j+1;k<analyzed.length;k++) {
+                            const [r1,r2,r3] = [analyzed[i],analyzed[j],analyzed[k]];
+                            const totalCost = r1.cost + r2.cost + r3.cost;
+                            if (totalCost <= budget) {
+                                const tP = r1.nut.p+r2.nut.p+r3.nut.p;
+                                const tF = r1.nut.f+r2.nut.f+r3.nut.f;
+                                const tC = r1.nut.c+r2.nut.c+r3.nut.c;
+                                const tFe= r1.nut.fe+r2.nut.fe+r3.nut.fe;
+                                const tZ = r1.nut.z+r2.nut.z+r3.nut.z;
+                                const tA = r1.nut.a+r2.nut.a+r3.nut.a;
+                                const tCa= r1.nut.ca+r2.nut.ca+r3.nut.ca;
+                                const tVitC= r1.nut.vitc+r2.nut.vitc+r3.nut.vitc;
+                                
+                                // Prioritas AI tetap pada Protein, Zinc, Zat Besi, Vit A (fokus Stunting)
+                                const score = Math.min(tP/targetNut.p,1)*40 + Math.min(tZ/targetNut.z,1)*30 +
+                                              Math.min(tFe/targetNut.fe,1)*20 + Math.min(tA/targetNut.a,1)*10;
+                                
+                                if (score > bestScore) {
+                                    bestScore = score;
+                                    bestMenu = [r1,r2,r3];
+                                    bestStats = { cost: totalCost, nut: {
+                                        cal: r1.nut.cal+r2.nut.cal+r3.nut.cal, p:tP, f:tF, c:tC, a:tA, z:tZ, fe:tFe, ca:tCa, vitc:tVitC } };
+                                }
+                            }
+                        }
+
+                // Jika anggaran terlalu kecil, AI ambil menu termurah sebisa mungkin
+                if (!bestMenu) {
+                    const sorted = [...analyzed].sort((a,b)=>a.cost-b.cost);
+                    let menu=[], cost=0, nut={cal:0,p:0,f:0,c:0,a:0,z:0,fe:0,ca:0,vitc:0};
+                    for (const r of sorted) {
+                        if (cost + r.cost <= budget) {
+                            menu.push(r); cost += r.cost;
+                            nut.p+=r.nut.p; nut.f+=r.nut.f; nut.c+=r.nut.c; nut.a+=r.nut.a; nut.z+=r.nut.z; nut.fe+=r.nut.fe; nut.ca+=r.nut.ca; nut.vitc+=r.nut.vitc; nut.cal+=r.nut.cal;
+                        }
+                    }
+                    if (menu.length) { bestMenu = menu; bestStats = { cost, nut }; }
+                }
+                this.renderPlannerResults(bestMenu, bestStats, targetNut);
+            }
+
+            renderPlannerResults(menus, stats, target) {
+                this.lastGeneratedMenu = menus;
+                this.lastGeneratedStats = stats;
+                this.lastTargetNut = target;
+                const area = document.getElementById('planner-results');
+
+                if (!menus || menus.length === 0) {
+                    area.innerHTML = `
+                        <div class="bg-red-50 border border-red-200 rounded-2xl p-5 text-center">
+                            <i class="ph-fill ph-warning-circle text-3xl text-red-500 mb-2"></i>
+                            <p class="text-sm font-semibold text-red-700">Anggaran terlalu rendah untuk menyusun menu.</p>
+                            <p class="text-xs text-red-500 mt-1">Coba tambah anggaran atau periksa harga pasar lokal.</p>
+                        </div>`;
+                    return;
+                }
+
+                const times = ['Sarapan', 'Makan Siang', 'Makan Malam', 'Selingan'];
+                const allTips = new Set();
+                let menuHTML = '';
+                menus.forEach((m, i) => {
+                    if (m.tips) allTips.add(m.tips);
+                    menuHTML += `
+                        <div class="relative pl-5">
+                            <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-4 ring-emerald-100"></div>
+                            <p class="text-[11px] font-bold text-emerald-600 uppercase tracking-wide">${times[i] || 'Selingan'}</p>
+                            <p class="text-sm font-semibold text-slate-800 mt-0.5">${m.name}</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Est. Biaya: ${this.formatIDR(m.cost)}</p>
+                        </div>`;
+                });
+
+                const bar = (label, cur, max, unit, cl) => {
+                    const pct = Math.min((cur/max)*100, 100);
+                    return `
+                        <div>
+                            <div class="flex justify-between text-xs mb-1.5">
+                                <span class="font-semibold text-slate-700">${label}</span>
+                                <span class="text-slate-400">${cur.toFixed(1)} / ${max} ${unit}</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="${cl} h-2.5 rounded-full progress-bar-fill" style="width:0%" data-target-width="${pct}%"></div>
+                            </div>
+                        </div>`;
+                };
+
+                area.innerHTML = `
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm animate-pop">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-slate-800 text-sm">Rekomendasi Menu Harian</h3>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Total: ${this.formatIDR(stats.cost)}</span>
+                        </div>
+                        <div class="space-y-4 border-l-2 border-emerald-100 ml-1">${menuHTML}</div>
+                    </div>
+
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm animate-pop">
+                        <h3 class="font-bold text-slate-800 mb-4 text-sm">Pemenuhan Target Gizi</h3>
+
+                        <div id="nutrition-bars" class="space-y-4">
+                            ${bar('Protein', stats.nut.p, target.p, 'g', 'bg-emerald-500')}
+                            ${bar('Lemak', stats.nut.f, target.f, 'g', 'bg-yellow-400')}
+                            ${bar('Karbohidrat', stats.nut.c, target.c, 'g', 'bg-orange-400')}
+                            ${bar('Zinc', stats.nut.z, target.z, 'mg', 'bg-blue-500')}
+                            ${bar('Zat Besi', stats.nut.fe, target.fe, 'mg', 'bg-red-500')}
+                            ${bar('Kalsium', stats.nut.ca, target.ca, 'mg', 'bg-indigo-400')}
+                            ${bar('Vitamin A', stats.nut.a, target.a, 'mcg', 'bg-amber-500')}
+                            ${bar('Vitamin C', stats.nut.vitc, target.vitc, 'mg', 'bg-lime-500')}
+                            ${bar('Kalori', stats.nut.cal, target.cal, 'kcal', 'bg-slate-400')}
+                        </div>
+
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 shadow-sm animate-pop">
+                        <h3 class="font-bold text-amber-800 mb-2 flex items-center text-sm">
+                            <i class="ph-fill ph-lightbulb text-lg mr-2"></i> Strategi Edukasi
+                        </h3>
+                        <ul class="text-sm text-amber-900 space-y-2 list-disc pl-4 marker:text-amber-500">
+                            ${Array.from(allTips).map(t=>`<li>${t}</li>`).join('') || '<li>Berikan pujian saat anak menghabiskan makanannya.</li>'}
+                        </ul>
+                    </div>
+                    
+                    <!-- TAMBAHAN TOMBOL SIMPAN KE RIWAYAT -->
+                    <button onclick="app.saveToHistory()" class="w-full bg-slate-800 text-white py-3.5 rounded-xl font-bold shadow-md active:scale-95 hover:bg-slate-700 transition flex items-center justify-center animate-pop">
+                        <i class="ph-bold ph-bookmark-simple mr-2 text-lg"></i> Simpan ke Riwayat Mingguan
+                    </button>`;
+
+                setTimeout(() => {
+                    area.querySelectorAll('.progress-bar-fill').forEach(b => b.style.width = b.dataset.targetWidth);
+                }, 100);
+            }
+
+            // TAMBAHKAN FUNGSI INI
+            saveToHistory() {
+                if (!this.lastGeneratedMenu) return;
+                
+                // Inisialisasi history jika belum ada dari storage versi lama
+                if (!this.state.history) this.state.history = []; 
+                
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'short' });
+                
+                const entry = {
+                    id: 'hist_' + Date.now(),
+                    date: dateStr,
+                    menus: this.lastGeneratedMenu.map(m => m.name),
+                    cost: this.lastGeneratedStats.cost
+                };
+
+                this.state.history.unshift(entry); // Simpan di urutan teratas
+                
+                // Batasi riwayat maksimal 7 hari terakhir agar tidak memberatkan memori
+                if (this.state.history.length > 7) this.state.history.pop();
+                
+                this.saveState();
+                this.showToast("Menu berhasil disimpan ke Riwayat!");
+            }
+
+            renderHistory() {
+                const container = document.getElementById('weekly-history-container');
+                if (!container) return;
+
+                if (!this.state.history || this.state.history.length === 0) {
+                    container.innerHTML = `<div class="bg-white p-4 rounded-2xl border border-slate-100 text-center"><p class="text-xs text-slate-400">Belum ada riwayat menu mingguan tersimpan.</p></div>`;
+                    return;
+                }
+
+                let html = `<h3 class="font-bold text-sm text-slate-700 mb-2 flex items-center"><i class="ph-fill ph-calendar-check mr-2 text-emerald-500 text-lg"></i> Riwayat 7 Menu Terakhir</h3>`;
+                
+                this.state.history.forEach((h, idx) => {
+                    html += `
+                        <div class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                            <div class="absolute right-0 top-0 bottom-0 w-10 bg-red-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" onclick="app.deleteHistory(${idx})">
+                                <i class="ph-bold ph-trash text-red-500"></i>
+                            </div>
+                            <p class="text-xs font-bold text-slate-800 mb-1">${h.date} <span class="text-emerald-600 font-normal ml-1">(${this.formatIDR(h.cost)})</span></p>
+                            <p class="text-[11px] text-slate-500 leading-tight">${h.menus.join(' • ')}</p>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            }
+
+            deleteHistory(index) {
+                if(confirm("Hapus menu ini dari riwayat?")) {
+                    this.state.history.splice(index, 1);
+                    this.saveState();
+                    this.renderHistory();
+                }
+            }
+
+            exportJSON() {
+                const blob = new Blob([JSON.stringify(this.state, null, 2)], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = `GiziDesa_Data_${Date.now()}.json`;
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                this.showToast("Data berhasil diekspor.");
+            }
+
+            importJSON(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const parsed = JSON.parse(e.target.result);
+                        if (parsed && parsed.profile && parsed.market) {
+                            this.state = parsed; this.saveState();
+                            this.showToast("Data berhasil diimpor.");
+                            this.switchTab('profile');
+                        } else throw new Error("Invalid");
+                    } catch { this.showToast("Gagal membaca file JSON. Format salah."); }
+                };
+                reader.readAsText(file);
+                event.target.value = '';
+            }
+
+            loadSampleData() {
+                this.state = getInitialState();
+                this.state.profile = { age: 24, weight: 9.5, height: 80, budget: 18000, lat: null, lng: null, locationName: 'Belum diatur' };
+                this.saveState();
+                this.showToast("Data Kasus Sampel dimuat!");
+                this.switchTab('profile');
+            }
+
+            exportToPDF() {
+                if (!this.lastGeneratedMenu) {
+                    this.showToast("Jalankan AI di menu 'Rekomendasi' dulu.");
+                    return;
+                }
+                this.showToast("Memproses dokumen PDF...");
+                const container = document.createElement('div');
+                container.style.cssText = 'padding:30px;font-family:Inter,sans-serif;color:#1f2937;';
+                
+                // Urutan waktu makan
+                const times = ['Sarapan', 'Makan Siang', 'Makan Malam', 'Selingan'];
+                
+                let html = `
+                    <div style="border-bottom:2px solid #059669;padding-bottom:10px;margin-bottom:20px;">
+                        <h1 style="color:#059669;margin:0;font-size:24px;">Laporan Rekomendasi GiziKita</h1>
+                        <p style="margin:5px 0 0;color:#6b7280;font-size:14px;">Sistem Pendukung Keputusan Gizi Posyandu</p>
+                    </div>
+                    
+                    <div style="margin-bottom:20px;background:#f3f4f6;padding:15px;border-radius:8px;">
+                        <h3 style="margin-top:0;font-size:16px;">Profil Balita</h3>
+                        <p style="margin:5px 0;font-size:14px;"><strong>Umur:</strong> ${this.state.profile.age} Bulan | <strong>Berat:</strong> ${this.state.profile.weight} kg | <strong>Tinggi:</strong> ${this.state.profile.height} cm</p>
+                        <p style="margin:5px 0;font-size:14px;"><strong>Anggaran Harian:</strong> ${this.formatIDR(this.state.profile.budget)}</p>
+                    </div>
+                    
+                    <h3 style="font-size:16px;border-bottom:1px solid #e5e7eb;padding-bottom:5px;">Rekomendasi Menu Harian (Total: ${this.formatIDR(this.lastGeneratedStats.cost)})</h3>
+                    <ul style="list-style:none; padding-left:0; margin-bottom:20px;">`;
+                
+                // Looping menu beserta keterangan waktu makan (Sarapan, Siang, dll)
+                this.lastGeneratedMenu.forEach((m, i) => {
+                    html += `
+                        <li style="margin-bottom:12px; font-size:14px; background:#f9fafb; padding:10px; border-left:4px solid #059669; border-radius:4px;">
+                            <strong style="color:#059669; font-size:12px; text-transform:uppercase;">${times[i] || 'Selingan'}</strong><br>
+                            <strong style="font-size:15px;">${m.name}</strong><br>
+                            <span style="color:#4b5563;font-size:12px;">Estimasi Biaya: ${this.formatIDR(m.cost)}</span><br>
+                            <span style="color:#6b7280;font-size:12px;"><em>Tips Edukasi: ${m.tips}</em></span>
+                        </li>`;
+                });
+                
+                // Tabel Gizi yang jauh lebih lengkap
+                html += `</ul>
+                    <h3 style="font-size:16px;border-bottom:1px solid #e5e7eb;padding-bottom:5px;">Capaian Target Gizi</h3>
+
+                    <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left;">
+                        <tr style="background:#f3f4f6;">
+                            <th style="padding:8px;border:1px solid #d1d5db;">Nutrisi</th>
+                            <th style="padding:8px;border:1px solid #d1d5db;">Capaian AI</th>
+                            <th style="padding:8px;border:1px solid #d1d5db;">Kebutuhan Harian (AKG)</th>
+                        </tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Kalori</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.cal.toFixed(0)} kcal</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.cal} kcal</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Protein</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.p.toFixed(1)} g</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.p} g</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Lemak</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.f.toFixed(1)} g</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.f} g</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Karbohidrat</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.c.toFixed(1)} g</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.c} g</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Zinc</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.z.toFixed(1)} mg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.z} mg</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Zat Besi (Fe)</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.fe.toFixed(1)} mg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.fe} mg</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Kalsium</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.ca.toFixed(0)} mg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.ca} mg</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Vitamin A</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.a.toFixed(0)} mcg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.a} mcg</td></tr>
+                        <tr><td style="padding:8px;border:1px solid #d1d5db;">Vitamin C</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastGeneratedStats.nut.vitc.toFixed(1)} mg</td><td style="padding:8px;border:1px solid #d1d5db;">${this.lastTargetNut.vitc} mg</td></tr>
+                    </table>
+
+                    <p style="margin-top:30px;font-size:10px;color:#9ca3af;text-align:center;">Dihasilkan oleh AI GiziKita - Aplikasi Bekerja Secara Offline</p>`;
+                
+                container.innerHTML = html;
+                html2pdf().set({
+                    margin: 0.5, 
+                    filename: `Laporan_GiziKita_${this.state.profile.age}bln.pdf`,
+                    image: { type:'jpeg', quality:0.98 }, 
+                    html2canvas:{ scale:2 },
+                    jsPDF: { unit:'in', format:'a4', orientation:'portrait' }
+                }).from(container).save();
+            }
+
+            resetData() {
+                localStorage.removeItem(LOCAL_STORAGE_KEY);
+                this.state = getInitialState();
+                this.saveState();
+                this.marketFilter = 'all';
+                this.showToast("Semua data direset ke setelan awal.");
+                this.switchTab('profile');
+                this.updateGPSUI();
+            }
+        }
+
+        let app;
+        window.addEventListener('DOMContentLoaded', () => { app = new GiziDesaApp(); });
+
+                // TAMBAHKAN SCRIPT SERVICE WORKER INI
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then((reg) => console.log('Service Worker berhasil didaftarkan!'))
+                    .catch((err) => console.error('Service Worker gagal:', err));
+            });
+        }
+
+    </script>
 </body>
 </html>
