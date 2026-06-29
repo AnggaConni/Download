@@ -5,14 +5,14 @@
     ],
     "package_name": "io.github.anggaconni.twa",
     "category": "Enterprise",
-    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782737359771.png",
+    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782745987217.png",
     "version": "3",
     "download_path": "APK/PesisirKita.apk",
     "size_mb": "1.81",
     "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
     "min_sdk": 21,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782737354068,
+    "timestamp": 1782745981487,
     "total_versions": 1,
     "versions": [
       {
@@ -29,18 +29,18 @@
   },
   {
     "app_name": [
-      "Heritage EWS"
+      "Heritage - Early Warning System"
     ],
     "package_name": "id.anggasaputra.ourheritage.twa",
     "category": "Enterprise",
-    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1782737359700.png",
+    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1782745987150.png",
     "version": "1.0.0.0",
     "download_path": "APK/Heritage EWS.apk",
     "size_mb": "3.51",
-    "sha256": "7f151225858b1623a621f22457af125f1c52332d08f3e1b8ab15f7aa95bb955f",
+    "sha256": "73051028a103f9d6fc8cdfbfd19187a2c62e09d50ba0337089a8c2b07085481b",
     "min_sdk": 23,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782737354061,
+    "timestamp": 1782745981480,
     "total_versions": 1,
     "versions": [
       {
@@ -49,7 +49,7 @@
         "download_path": "APK/Heritage EWS.apk",
         "size_mb": "3.51",
         "update_date": "Jun 29, 2026",
-        "sha256": "7f151225858b1623a621f22457af125f1c52332d08f3e1b8ab15f7aa95bb955f",
+        "sha256": "73051028a103f9d6fc8cdfbfd19187a2c62e09d50ba0337089a8c2b07085481b",
         "min_sdk": 23,
         "release_notes": ""
       }
@@ -61,14 +61,14 @@
     ],
     "package_name": "io.github.anggaconni.globalscript",
     "category": "Enterprise",
-    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782737359618.png",
+    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782745987078.png",
     "version": "1.0.0.0",
     "download_path": "APK/GlobalScript.apk",
     "size_mb": "3.14",
     "sha256": "baf8ffca4e2d5eab28c8309ffb5742f61f0ed1796a2b9d89078196070575c14b",
     "min_sdk": 23,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782737354052,
+    "timestamp": 1782745981472,
     "total_versions": 1,
     "versions": [
       {
@@ -89,14 +89,14 @@
     ],
     "package_name": "id.anggasaputra.gizikita.twa",
     "category": "Enterprise",
-    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782737359511.png",
+    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782745986977.png",
     "version": "1.0.0.0",
     "download_path": "APK/GiziDesa.apk",
     "size_mb": "2.85",
     "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
     "min_sdk": 23,
     "update_date": "Jun 29, 2026",
-    "timestamp": 1782737354046,
+    "timestamp": 1782745981466,
     "total_versions": 1,
     "versions": [
       {
