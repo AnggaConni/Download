@@ -640,6 +640,7 @@
 // ══════════════════════════════════════════════════════════
 let allApps     = [];
 let renderedNow = [];   // currently displayed (for index lookup)
+let fallbackDesc = {}; 
 let curView     = 'grid';
 let curFilter   = 'all';
 let curSort     = 'newest';
@@ -691,12 +692,36 @@ function buildSkeletons() {
     }
 }
 
+// Fungsi pintar untuk mengambil deskripsi
+function getAppDescription(app) {
+    // 1. Cek apakah ada deskripsi valid di apps.json bawaan CI/CD
+    if (app.description && app.description !== "Tidak ada deskripsi tersedia untuk aplikasi ini.") {
+        return app.description;
+    }
+    // 2. Jika tidak ada, cek fallback di desc.json berdasarkan package_name
+    if (fallbackDesc[app.package_name]) {
+        return fallbackDesc[app.package_name];
+    }
+    // 3. Jika tetap tidak ada, gunakan default text
+    return "No description provided. Click details to see more info or screenshots.";
+}
+
 // ══════════════════════════════════════════════════════════
 //  FETCH
 // ══════════════════════════════════════════════════════════
 async function fetchApps() {
     try {
         await new Promise(r => setTimeout(r, 500));
+        
+        // --- TAMBAHAN BARU: Ambil desc.json (Tidak akan error jika file belum dibuat) ---
+        try {
+            const descRes = await fetch('APK/desc.json');
+            if (descRes.ok) fallbackDesc = await descRes.json();
+        } catch (e) {
+            console.warn('desc.json belum ada atau gagal dimuat, abaikan.');
+        }
+        // --------------------------------------------------------------------------------
+
         const res = await fetch('APK/apps.json');
         if (!res.ok) throw new Error('not found');
         allApps = await res.json();
@@ -837,8 +862,7 @@ function renderGrid(apps) {
         const catBadge  = app.category ? `<span class="bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">${esc(app.category)}</span>` : '';
         
         // Use provided description or fallback
-        const descText = app.description && app.description !== "Tidak ada deskripsi tersedia untuk aplikasi ini." 
-            ? app.description : "No description provided. Click details to see more info or screenshots.";
+        const descText = getAppDescription(app);
 
         const card = document.createElement('div');
         card.className = 'app-card rounded-2xl p-6 flex flex-col justify-between fade-up';
@@ -907,7 +931,7 @@ function renderList(apps) {
     apps.forEach((app, i) => {
         const absUrl  = toAbsUrl(app.download_path);
         const newBadge = isNew(app.update_date) ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">NEW</span>` : '';
-        const descText = app.description && app.description !== "Tidak ada deskripsi tersedia untuk aplikasi ini." ? app.description : "No description provided.";
+        const descText = getAppDescription(app);
 
         const row = document.createElement('div');
         row.className = 'list-row flex items-center gap-4 px-5 py-4 fade-up';
@@ -984,7 +1008,7 @@ function openAppDetails(idx) {
     };
 
     // Populate Body
-    document.getElementById('detDesc').textContent = app.description || "Tidak ada deskripsi tersedia untuk aplikasi ini.";
+    document.getElementById('detDesc').textContent = getAppDescription(app);
     document.getElementById('detSize').textContent = `${app.size_mb} MB`;
     document.getElementById('detDate').textContent = app.update_date;
     document.getElementById('detSdk').textContent = app.min_sdk || "None";
