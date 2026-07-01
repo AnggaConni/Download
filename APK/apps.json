@@ -4,15 +4,17 @@
       "PesisirKita - Sistem Operasi Lapangan"
     ],
     "package_name": "io.github.anggaconni.twa",
-    "category": "Enterprise",
-    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782745987217.png",
+    "category": "PWA Application",
+    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782908438342.png",
+    "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
+    "screenshots": [],
     "version": "3",
     "download_path": "APK/PesisirKita.apk",
     "size_mb": "1.81",
     "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
     "min_sdk": 21,
-    "update_date": "Jun 29, 2026",
-    "timestamp": 1782745981487,
+    "update_date": "Jul 1, 2026",
+    "timestamp": 1782908431565,
     "total_versions": 1,
     "versions": [
       {
@@ -20,10 +22,11 @@
         "file_name": "PesisirKita.apk",
         "download_path": "APK/PesisirKita.apk",
         "size_mb": "1.81",
-        "update_date": "Jun 29, 2026",
+        "update_date": "Jul 1, 2026",
         "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
         "min_sdk": 21,
-        "release_notes": ""
+        "release_notes": "",
+        "screenshots": []
       }
     ]
   },
@@ -32,15 +35,17 @@
       "Heritage - Early Warning System"
     ],
     "package_name": "id.anggasaputra.ourheritage.twa",
-    "category": "Enterprise",
-    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1782745987150.png",
+    "category": "PWA Application",
+    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1782908438245.png",
+    "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
+    "screenshots": [],
     "version": "1.0.0.0",
     "download_path": "APK/Heritage EWS.apk",
     "size_mb": "3.51",
     "sha256": "73051028a103f9d6fc8cdfbfd19187a2c62e09d50ba0337089a8c2b07085481b",
     "min_sdk": 23,
-    "update_date": "Jun 29, 2026",
-    "timestamp": 1782745981480,
+    "update_date": "Jul 1, 2026",
+    "timestamp": 1782908431558,
     "total_versions": 1,
     "versions": [
       {
@@ -48,10 +53,11 @@
         "file_name": "Heritage EWS.apk",
         "download_path": "APK/Heritage EWS.apk",
         "size_mb": "3.51",
-        "update_date": "Jun 29, 2026",
+        "update_date": "Jul 1, 2026",
         "sha256": "73051028a103f9d6fc8cdfbfd19187a2c62e09d50ba0337089a8c2b07085481b",
         "min_sdk": 23,
-        "release_notes": ""
+        "release_notes": "",
+        "screenshots": []
       }
     ]
   },
@@ -60,15 +66,17 @@
       "GlobalScript"
     ],
     "package_name": "io.github.anggaconni.globalscript",
-    "category": "Enterprise",
-    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782745987078.png",
+    "category": "PWA Application",
+    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782908438141.png",
+    "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
+    "screenshots": [],
     "version": "1.0.0.0",
     "download_path": "APK/GlobalScript.apk",
     "size_mb": "3.14",
     "sha256": "baf8ffca4e2d5eab28c8309ffb5742f61f0ed1796a2b9d89078196070575c14b",
     "min_sdk": 23,
-    "update_date": "Jun 29, 2026",
-    "timestamp": 1782745981472,
+    "update_date": "Jul 1, 2026",
+    "timestamp": 1782908431551,
     "total_versions": 1,
     "versions": [
       {
@@ -76,10 +84,11 @@
         "file_name": "GlobalScript.apk",
         "download_path": "APK/GlobalScript.apk",
         "size_mb": "3.14",
-        "update_date": "Jun 29, 2026",
+        "update_date": "Jul 1, 2026",
         "sha256": "baf8ffca4e2d5eab28c8309ffb5742f61f0ed1796a2b9d89078196070575c14b",
         "min_sdk": 23,
-        "release_notes": ""
+        "release_notes": "",
+        "screenshots": []
       }
     ]
   },
@@ -88,15 +97,17 @@
       "GiziDesa"
     ],
     "package_name": "id.anggasaputra.gizikita.twa",
-    "category": "Enterprise",
-    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782745986977.png",
+    "category": "PWA Application",
+    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782908438005.png",
+    "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
+    "screenshots": [],
     "version": "1.0.0.0",
     "download_path": "APK/GiziDesa.apk",
     "size_mb": "2.85",
     "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
     "min_sdk": 23,
-    "update_date": "Jun 29, 2026",
-    "timestamp": 1782745981466,
+    "update_date": "Jul 1, 2026",
+    "timestamp": 1782908431545,
     "total_versions": 1,
     "versions": [
       {
@@ -104,10 +115,11 @@
         "file_name": "GiziDesa.apk",
         "download_path": "APK/GiziDesa.apk",
         "size_mb": "2.85",
-        "update_date": "Jun 29, 2026",
+        "update_date": "Jul 1, 2026",
         "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
         "min_sdk": 23,
-        "release_notes": ""
+        "release_notes": "",
+        "screenshots": []
       }
     ]
   }
