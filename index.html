@@ -63,6 +63,17 @@
         /* ── Typography ── */
         .font-mono-data { font-family: 'JetBrains Mono', 'Courier New', monospace; }
 
+        /* ── Utilities ── */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
         /* ── Shimmer skeleton ── */
         @keyframes shimmer {
             0%   { background-position: -900px 0; }
@@ -154,8 +165,8 @@
         .badge-new { animation: pulse-soft 2.2s ease-in-out infinite; }
 
         /* ── Scrollbar ── */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 3px; }
         ::-webkit-scrollbar-thumb { background: #c7d2e0; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
@@ -260,8 +271,7 @@
         </div>
     </div>
 
-
-        <!-- TAMPILKAN TOMBOL GUIDE DI SINI -->
+    <!-- TAMPILKAN TOMBOL GUIDE DI SINI -->
     <div class="flex justify-center mt-5 fade-up" style="animation-delay:.20s">
         <button onclick="openGuide()" class="flex items-center gap-2 text-sm bg-white/80 backdrop-blur border border-slate-200 text-slate-600 font-semibold px-4 py-2 rounded-xl hover:bg-white hover:text-blue-600 hover:border-blue-300 transition-all shadow-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -387,9 +397,113 @@
 
 
 <!-- ═══════════════════════════════════════════
+     APP DETAILS MODAL (NEW)
+════════════════════════════════════════════ -->
+<div id="appDetailsModal" class="fixed inset-0 z-[110] flex items-center justify-center p-4 hidden sm:p-6">
+    <div class="modal-bg absolute inset-0 bg-slate-900/60" onclick="closeAppDetails()"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[95vh] flex flex-col z-10 fade-up border border-slate-200 overflow-hidden">
+        
+        <!-- Header (Sticky) -->
+        <div class="flex items-start justify-between p-5 sm:p-6 border-b border-slate-100 bg-white sticky top-0 z-20">
+            <div class="flex items-center gap-4">
+                <img id="detIcon" src="" alt="App Icon" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border border-slate-200 shadow-sm bg-slate-50">
+                <div>
+                    <div class="flex items-center gap-2 mb-1 flex-wrap">
+                        <h2 id="detName" class="text-xl sm:text-2xl font-black text-slate-900">App Name</h2>
+                        <span id="detVersion" class="font-mono-data text-xs font-bold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md border border-blue-100">v1.0</span>
+                        <span id="detCategory" class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md hidden">Category</span>
+                    </div>
+                    <p id="detPackage" class="text-sm text-slate-500 font-mono-data">com.package.name</p>
+                </div>
+            </div>
+            <button onclick="closeAppDetails()" class="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-colors shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Body (Scrollable) -->
+        <div class="p-5 sm:p-6 overflow-y-auto flex-1 bg-slate-50/50">
+            <!-- Description -->
+            <div class="mb-8">
+                <h3 class="text-sm font-extrabold text-slate-900 mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    About Application
+                </h3>
+                <p id="detDesc" class="text-sm text-slate-600 leading-relaxed whitespace-pre-wrap"></p>
+            </div>
+
+            <!-- Screenshots Gallery -->
+            <div id="detScreenshotsWrap" class="mb-8 hidden">
+                <h3 class="text-sm font-extrabold text-slate-900 mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Screenshots
+                </h3>
+                <div class="relative group">
+                    <div id="detScreenshots" class="flex gap-4 overflow-x-auto snap-x scrollbar-hide pb-2">
+                        <!-- Images injected here -->
+                    </div>
+                    <!-- Optional scroll hint -->
+                    <div class="absolute right-0 top-0 bottom-2 w-12 bg-gradient-to-l from-slate-50/90 to-transparent pointer-events-none md:hidden"></div>
+                </div>
+            </div>
+
+            <!-- Meta Data Grid -->
+            <h3 class="text-sm font-extrabold text-slate-900 mb-3">Technical Details</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div class="bg-white rounded-xl p-3 border border-slate-200 text-center shadow-sm">
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mb-1">File Size</p>
+                    <p id="detSize" class="text-sm font-extrabold text-slate-700">0 MB</p>
+                </div>
+                <div class="bg-white rounded-xl p-3 border border-slate-200 text-center shadow-sm">
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mb-1">Updated</p>
+                    <p id="detDate" class="text-sm font-extrabold text-slate-700 truncate">Date</p>
+                </div>
+                <div class="bg-white rounded-xl p-3 border border-slate-200 text-center shadow-sm">
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mb-1">Min SDK</p>
+                    <p id="detSdk" class="text-sm font-extrabold text-slate-700">None</p>
+                </div>
+                <div class="bg-white rounded-xl p-3 border border-slate-200 text-center shadow-sm flex flex-col justify-center items-center">
+                    <p class="text-[10px] text-slate-400 uppercase font-bold mb-1">Verified</p>
+                    <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div id="detShaWrap" class="mt-3 bg-slate-100 rounded-lg px-3 py-2 border border-slate-200 hidden items-center justify-between">
+                <span class="text-[10px] text-slate-500 font-bold uppercase shrink-0 mr-2">SHA-256</span>
+                <code id="detSha" class="text-[10px] text-slate-600 font-mono-data truncate flex-1 text-right"></code>
+            </div>
+        </div>
+
+        <!-- Footer Actions (Sticky) -->
+        <div class="p-4 sm:p-5 border-t border-slate-200 bg-white flex items-center justify-end gap-3 shrink-0">
+            <button id="detBtnQr" class="icon-btn icon-qr !px-4 !py-2.5 !gap-2 !text-sm" title="Show QR Code">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+                <span class="hidden sm:inline">QR Code</span>
+            </button>
+            <button id="detBtnCopy" class="icon-btn !px-4 !py-2.5 !gap-2 !text-sm" title="Copy Link">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                <span class="hidden sm:inline">Copy Link</span>
+            </button>
+            <a id="detBtnDownload" href="#" download class="dl-btn py-2.5 px-6 rounded-xl text-sm flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Download APK
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
      QR MODAL
 ════════════════════════════════════════════ -->
-<div id="qrModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+<div id="qrModal" class="fixed inset-0 z-[120] flex items-center justify-center p-4 hidden">
     <div class="modal-bg absolute inset-0 bg-slate-900/55" onclick="closeQr()"></div>
     <div class="relative bg-white rounded-2xl shadow-2xl p-7 max-w-xs w-full text-center z-10 fade-up border border-slate-200">
         <button onclick="closeQr()" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-700 transition-colors p-1">
@@ -417,7 +531,7 @@
 <!-- ═══════════════════════════════════════════
      GUIDE MODAL
 ════════════════════════════════════════════ -->
-<div id="guideModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+<div id="guideModal" class="fixed inset-0 z-[120] flex items-center justify-center p-4 hidden">
     <div class="modal-bg absolute inset-0 bg-slate-900/55" onclick="closeGuide()"></div>
     <div class="relative bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-lg w-full z-10 fade-up border border-slate-200 max-h-[90vh] overflow-y-auto text-left">
         <button onclick="closeGuide()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 transition-colors p-1 bg-slate-100 rounded-full">
@@ -525,7 +639,7 @@
 //  STATE
 // ══════════════════════════════════════════════════════════
 let allApps     = [];
-let renderedNow = [];   // currently displayed (for QR index lookup)
+let renderedNow = [];   // currently displayed (for index lookup)
 let curView     = 'grid';
 let curFilter   = 'all';
 let curSort     = 'newest';
@@ -540,7 +654,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('searchInput').addEventListener('input', rerender);
     document.getElementById('sortSelect').addEventListener('change', e => { curSort = e.target.value; rerender(); });
 
-    // Keyboard: / → focus search, Esc → close modal
+    // Keyboard controls
     document.addEventListener('keydown', e => {
         if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
             e.preventDefault();
@@ -548,7 +662,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (e.key === 'Escape') { 
             closeQr(); 
-            closeGuide(); 
+            closeGuide();
+            closeAppDetails(); 
         }
     });
 });
@@ -612,15 +727,13 @@ async function fetchApps() {
 }
 
 // ══════════════════════════════════════════════════════════
-//  STATS
+//  STATS & FILTERING
 // ══════════════════════════════════════════════════════════
 function updateStats() {
     animCount('sTotalApps', allApps.length);
-
     const total = allApps.reduce((s, a) => s + (parseFloat(a.size_mb) || 0), 0);
     document.getElementById('sTotalSize').textContent =
         total >= 1000 ? `${(total/1000).toFixed(1)} GB` : `${Math.round(total)} MB`;
-
     const dates = allApps.map(a => a.update_date).filter(Boolean).sort().reverse();
     document.getElementById('sLatest').textContent = dates[0] || '—';
 }
@@ -636,9 +749,6 @@ function animCount(id, target) {
     requestAnimationFrame(tick);
 }
 
-// ══════════════════════════════════════════════════════════
-//  FILTER TABS
-// ══════════════════════════════════════════════════════════
 function buildFilterTabs() {
     const cats = ['All', ...new Set(allApps.map(a => a.category).filter(Boolean))];
     const wrap = document.getElementById('filterTabs');
@@ -659,9 +769,6 @@ function buildFilterTabs() {
     });
 }
 
-// ══════════════════════════════════════════════════════════
-//  VIEW TOGGLE
-// ══════════════════════════════════════════════════════════
 function setView(v) {
     curView = v;
     document.getElementById('btnGrid').className = 'vtbtn' + (v === 'grid' ? ' active' : '');
@@ -669,12 +776,8 @@ function setView(v) {
     rerender();
 }
 
-// ══════════════════════════════════════════════════════════
-//  RERENDER
-// ══════════════════════════════════════════════════════════
 function rerender() {
     const q = document.getElementById('searchInput').value.toLowerCase().trim();
-
     let apps = allApps.filter(a => {
         const s = !q ||
             (a.app_name     || '').toLowerCase().includes(q) ||
@@ -693,8 +796,7 @@ function rerender() {
 
     if (!apps.length) {
         showEl('noResultState', 'flex');
-        document.getElementById('noResultMsg').textContent =
-            q ? `No apps matching "${q}".` : 'No apps in this category.';
+        document.getElementById('noResultMsg').textContent = q ? `No apps matching "${q}".` : 'No apps in this category.';
         return;
     }
 
@@ -718,41 +820,25 @@ function sort(apps, by) {
 function dateDiff(a, b) {
     return new Date(a.update_date || 0) - new Date(b.update_date || 0);
 }
-
-// ══════════════════════════════════════════════════════════
-//  IS NEW (≤ 7 days)
-// ══════════════════════════════════════════════════════════
 function isNew(d) {
     if (!d) return false;
     return (Date.now() - new Date(d).getTime()) / 86400000 <= 7;
 }
 
 // ══════════════════════════════════════════════════════════
-//  GRID RENDER
+//  RENDER UI (GRID & LIST)
 // ══════════════════════════════════════════════════════════
 function renderGrid(apps) {
     const g = document.getElementById('appGrid');
     g.innerHTML = '';
     apps.forEach((app, i) => {
         const absUrl  = toAbsUrl(app.download_path);
-        const newBadge  = isNew(app.update_date)
-            ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</span>` : '';
-        const catBadge  = app.category
-            ? `<span class="bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">${esc(app.category)}</span>` : '';
-        const sdkRow    = app.min_sdk
-            ? `<div class="flex items-center gap-1.5 mb-4 text-xs text-slate-500">
-                  <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/>
-                  </svg>
-                  Min Android <strong>${esc(app.min_sdk)}</strong>
-              </div>` : '';
-        const shaRow    = app.sha256
-            ? `<div class="flex items-center gap-1.5 mb-3">
-                  <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                  <span class="text-[10px] font-mono-data text-emerald-600 truncate">${app.sha256.substring(0,18)}…</span>
-              </div>` : '';
+        const newBadge  = isNew(app.update_date) ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</span>` : '';
+        const catBadge  = app.category ? `<span class="bg-indigo-50 text-indigo-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">${esc(app.category)}</span>` : '';
+        
+        // Use provided description or fallback
+        const descText = app.description && app.description !== "Tidak ada deskripsi tersedia untuk aplikasi ini." 
+            ? app.description : "No description provided. Click details to see more info or screenshots.";
 
         const card = document.createElement('div');
         card.className = 'app-card rounded-2xl p-6 flex flex-col justify-between fade-up';
@@ -760,12 +846,13 @@ function renderGrid(apps) {
         card.dataset.idx = i;
 
         card.innerHTML = `
-          <div>
+          <!-- Clickable card area to open details -->
+          <div class="cursor-pointer group" onclick="openAppDetails(${i})">
             <!-- Icon + version -->
             <div class="flex items-start justify-between mb-4">
               <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
                 onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=128'"
-                class="w-16 h-16 rounded-xl object-cover border border-slate-200 bg-white shadow-sm">
+                class="w-16 h-16 rounded-xl object-cover border border-slate-200 bg-white shadow-sm group-hover:scale-105 transition-transform duration-300">
               <div class="flex flex-col items-end gap-1.5">
                 <span class="font-mono-data bg-blue-50 border border-blue-100 text-xs font-bold px-2.5 py-1 rounded-lg text-blue-700">v${esc(app.version)}</span>
                 <div class="flex items-center gap-1 flex-wrap justify-end">${newBadge}${catBadge}</div>
@@ -773,8 +860,11 @@ function renderGrid(apps) {
             </div>
 
             <!-- Name + package -->
-            <h3 class="text-[15px] font-extrabold text-slate-900 mb-0.5 truncate" title="${esc(app.app_name)}">${esc(app.app_name)}</h3>
-            <p class="text-xs text-slate-400 font-mono-data truncate mb-4" title="${esc(app.package_name)}">${esc(app.package_name)}</p>
+            <h3 class="text-[15px] font-extrabold text-slate-900 mb-0.5 truncate group-hover:text-blue-600 transition-colors" title="${esc(app.app_name)}">${esc(app.app_name)}</h3>
+            <p class="text-[11px] text-slate-400 font-mono-data truncate mb-3" title="${esc(app.package_name)}">${esc(app.package_name)}</p>
+
+            <!-- Description snippet -->
+            <p class="text-xs text-slate-500 line-clamp-2 mb-4 leading-relaxed">${esc(descText)}</p>
 
             <!-- Size + date -->
             <div class="grid grid-cols-2 gap-2 mb-4">
@@ -787,33 +877,23 @@ function renderGrid(apps) {
                 <p class="text-xs font-extrabold text-slate-700 truncate">${esc(app.update_date)}</p>
               </div>
             </div>
-
-            ${sdkRow}${shaRow}
           </div>
 
-          <!-- Actions -->
+          <!-- Actions (Prevent triggering card click) -->
           <div class="flex items-center gap-2 mt-1">
             <a href="${esc(app.download_path)}" download
               class="dl-btn flex-1 text-center py-2.5 rounded-xl text-sm flex items-center justify-center gap-2"
               onclick="toast('⬇ Downloading ${esc(app.app_name).replace(/'/g,'\\&#39;')}…','info')">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               Download
             </a>
-
             <!-- Copy link -->
             <button class="reveal-btn icon-btn" title="Copy download link" onclick="copyLink('${absUrl}')">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
-              </svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
             </button>
-
             <!-- QR -->
             <button class="reveal-btn icon-btn icon-qr" title="QR code" onclick="openQr(${i})">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
-              </svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
             </button>
           </div>
         `;
@@ -821,36 +901,36 @@ function renderGrid(apps) {
     });
 }
 
-// ══════════════════════════════════════════════════════════
-//  LIST RENDER
-// ══════════════════════════════════════════════════════════
 function renderList(apps) {
     const l = document.getElementById('appList');
     l.innerHTML = '';
     apps.forEach((app, i) => {
         const absUrl  = toAbsUrl(app.download_path);
-        const newBadge = isNew(app.update_date)
-            ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">NEW</span>` : '';
+        const newBadge = isNew(app.update_date) ? `<span class="badge-new bg-emerald-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">NEW</span>` : '';
+        const descText = app.description && app.description !== "Tidak ada deskripsi tersedia untuk aplikasi ini." ? app.description : "No description provided.";
 
         const row = document.createElement('div');
         row.className = 'list-row flex items-center gap-4 px-5 py-4 fade-up';
         row.style.animationDelay = `${i * 0.03}s`;
+        
         row.innerHTML = `
-          <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
-            onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=64'"
-            class="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0">
-
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 flex-wrap">
-              <h3 class="font-extrabold text-slate-900 text-sm">${esc(app.app_name)}</h3>
-              ${newBadge}
-              <span class="font-mono-data text-xs text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">v${esc(app.version)}</span>
-              ${app.category ? `<span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">${esc(app.category)}</span>` : ''}
-            </div>
-            <p class="text-xs text-slate-400 font-mono-data truncate mt-0.5">${esc(app.package_name)}</p>
+          <!-- Clickable area to open modal -->
+          <div class="flex flex-1 min-w-0 items-center gap-4 cursor-pointer group" onclick="openAppDetails(${i})">
+              <img src="${esc(app.icon_path || '')}" alt="${esc(app.app_name)}"
+                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=64'"
+                class="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h3 class="font-extrabold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">${esc(app.app_name)}</h3>
+                  ${newBadge}
+                  <span class="font-mono-data text-[10px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">v${esc(app.version)}</span>
+                  ${app.category ? `<span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md">${esc(app.category)}</span>` : ''}
+                </div>
+                <p class="text-xs text-slate-500 truncate mt-1 line-clamp-1">${esc(descText)}</p>
+              </div>
           </div>
 
-          <div class="hidden sm:flex items-center gap-6 text-xs text-slate-500 shrink-0">
+          <div class="hidden sm:flex items-center gap-6 text-xs text-slate-500 shrink-0 pointer-events-none">
             <div class="text-center">
               <p class="font-extrabold text-slate-700">${esc(app.size_mb)} MB</p>
               <p class="text-slate-400 text-[10px]">Size</p>
@@ -861,25 +941,16 @@ function renderList(apps) {
             </div>
           </div>
 
+          <!-- Quick Actions -->
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="copyLink('${absUrl}')" title="Copy link"
-              class="hidden sm:flex p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
-              </svg>
+            <button onclick="copyLink('${absUrl}')" title="Copy link" class="hidden sm:flex p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
             </button>
-            <button onclick="openQr(${i})" title="QR code"
-              class="hidden sm:flex p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
-              </svg>
+            <button onclick="openQr(${i})" title="QR code" class="hidden sm:flex p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
             </button>
-            <a href="${esc(app.download_path)}" download
-              onclick="toast('⬇ Downloading…','info')"
-              class="dl-btn font-bold text-xs py-2 px-4 rounded-xl flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
+            <a href="${esc(app.download_path)}" download onclick="toast('⬇ Downloading…','info')" class="dl-btn font-bold text-xs py-2 px-4 rounded-xl flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               Download
             </a>
           </div>
@@ -888,8 +959,80 @@ function renderList(apps) {
     });
 }
 
+
 // ══════════════════════════════════════════════════════════
-//  QR MODAL
+//  APP DETAILS MODAL (NEW)
+// ══════════════════════════════════════════════════════════
+function openAppDetails(idx) {
+    const app = renderedNow[idx];
+    if (!app) return;
+    
+    const absUrl = toAbsUrl(app.download_path);
+
+    // Populate Header
+    document.getElementById('detName').textContent = app.app_name;
+    document.getElementById('detVersion').textContent = `v${app.version}`;
+    document.getElementById('detPackage').textContent = app.package_name;
+    
+    const catBadge = document.getElementById('detCategory');
+    if (app.category) { catBadge.textContent = app.category; catBadge.classList.remove('hidden'); }
+    else { catBadge.classList.add('hidden'); }
+    
+    document.getElementById('detIcon').src = app.icon_path || `https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=128`;
+    document.getElementById('detIcon').onerror = function() {
+        this.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(app.app_name)}&background=eff6ff&color=2563eb&size=128`;
+    };
+
+    // Populate Body
+    document.getElementById('detDesc').textContent = app.description || "Tidak ada deskripsi tersedia untuk aplikasi ini.";
+    document.getElementById('detSize').textContent = `${app.size_mb} MB`;
+    document.getElementById('detDate').textContent = app.update_date;
+    document.getElementById('detSdk').textContent = app.min_sdk || "None";
+    
+    const shaWrap = document.getElementById('detShaWrap');
+    if (app.sha256) {
+        document.getElementById('detSha').textContent = app.sha256;
+        shaWrap.classList.remove('hidden');
+        shaWrap.classList.add('flex');
+    } else {
+        shaWrap.classList.add('hidden');
+        shaWrap.classList.remove('flex');
+    }
+
+    // Populate Screenshots
+    const ssWrap = document.getElementById('detScreenshotsWrap');
+    const ssContainer = document.getElementById('detScreenshots');
+    ssContainer.innerHTML = '';
+    
+    if (app.screenshots && Array.isArray(app.screenshots) && app.screenshots.length > 0) {
+        app.screenshots.forEach(src => {
+            ssContainer.innerHTML += `
+                <img src="${esc(src)}" class="h-56 sm:h-72 w-auto rounded-lg object-contain border border-slate-200 snap-center bg-white shadow-sm" alt="Screenshot" loading="lazy">
+            `;
+        });
+        ssWrap.classList.remove('hidden');
+    } else {
+        ssWrap.classList.add('hidden');
+    }
+
+    // Populate Actions
+    const btnDl = document.getElementById('detBtnDownload');
+    btnDl.href = app.download_path;
+    btnDl.onclick = () => toast(`⬇ Downloading ${app.app_name}…`, 'info');
+    
+    document.getElementById('detBtnQr').onclick = () => { closeAppDetails(); openQr(idx); };
+    document.getElementById('detBtnCopy').onclick = () => copyLink(absUrl);
+
+    // Show Modal
+    document.getElementById('appDetailsModal').classList.remove('hidden');
+}
+
+function closeAppDetails() {
+    document.getElementById('appDetailsModal').classList.add('hidden');
+}
+
+// ══════════════════════════════════════════════════════════
+//  MODALS & ACTIONS
 // ══════════════════════════════════════════════════════════
 function openQr(idx) {
     const app = renderedNow[idx];
@@ -910,16 +1053,12 @@ function openQr(idx) {
         box.innerHTML = `<p class="text-xs text-slate-400 p-8 text-center">QR library unavailable.<br>
             <a href="${absUrl}" class="text-blue-500 underline break-all text-[11px]">${absUrl}</a></p>`;
     }
-
     document.getElementById('qrModal').classList.remove('hidden');
 }
 function closeQr() {
     document.getElementById('qrModal').classList.add('hidden');
 }
 
-// ══════════════════════════════════════════════════════════
-//  COPY LINK
-// ══════════════════════════════════════════════════════════
 async function copyLink(url) {
     try {
         await navigator.clipboard.writeText(url);
@@ -928,15 +1067,9 @@ async function copyLink(url) {
         toast('⚠ Could not copy — check browser permissions', 'warning');
     }
 }
-// ══════════════════════════════════════════════════════════
-//  GUIDE MODAL
-// ══════════════════════════════════════════════════════════
-function openGuide() {
-    document.getElementById('guideModal').classList.remove('hidden');
-}
-function closeGuide() {
-    document.getElementById('guideModal').classList.add('hidden');
-}
+
+function openGuide() { document.getElementById('guideModal').classList.remove('hidden'); }
+function closeGuide() { document.getElementById('guideModal').classList.add('hidden'); }
 
 // ══════════════════════════════════════════════════════════
 //  TOAST
@@ -960,9 +1093,7 @@ function toAbsUrl(path) {
 }
 function esc(str) {
     if (!str && str !== 0) return '';
-    return String(str)
-        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-        .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function showEl(id, display = 'block') {
     const el = document.getElementById(id);
