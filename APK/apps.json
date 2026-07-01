@@ -5,7 +5,7 @@
     ],
     "package_name": "io.github.anggaconni.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782908438342.png",
+    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1782912017222.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "3",
@@ -14,7 +14,7 @@
     "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
     "min_sdk": 21,
     "update_date": "Jul 1, 2026",
-    "timestamp": 1782908431565,
+    "timestamp": 1782912010889,
     "total_versions": 1,
     "versions": [
       {
@@ -32,11 +32,42 @@
   },
   {
     "app_name": [
+      "Pantau Iklim Desa"
+    ],
+    "package_name": "id.anggasaputra.pantauiklim.twa",
+    "category": "PWA Application",
+    "icon_path": "APK/icons/id.anggasaputra.pantauiklim.twa_1.0.0.0_1782912017127.png",
+    "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
+    "screenshots": [],
+    "version": "1.0.0.0",
+    "download_path": "APK/Pantau Iklim Desa.apk",
+    "size_mb": "2.15",
+    "sha256": "263f4cd32e1528a61dfccf673872f38fdcca837f3c34f57824553f8abd1a0a33",
+    "min_sdk": 23,
+    "update_date": "Jul 1, 2026",
+    "timestamp": 1782912010882,
+    "total_versions": 1,
+    "versions": [
+      {
+        "version": "1.0.0.0",
+        "file_name": "Pantau Iklim Desa.apk",
+        "download_path": "APK/Pantau Iklim Desa.apk",
+        "size_mb": "2.15",
+        "update_date": "Jul 1, 2026",
+        "sha256": "263f4cd32e1528a61dfccf673872f38fdcca837f3c34f57824553f8abd1a0a33",
+        "min_sdk": 23,
+        "release_notes": "",
+        "screenshots": []
+      }
+    ]
+  },
+  {
+    "app_name": [
       "Heritage - Early Warning System"
     ],
     "package_name": "id.anggasaputra.ourheritage.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1782908438245.png",
+    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1782912017056.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -45,7 +76,7 @@
     "sha256": "73051028a103f9d6fc8cdfbfd19187a2c62e09d50ba0337089a8c2b07085481b",
     "min_sdk": 23,
     "update_date": "Jul 1, 2026",
-    "timestamp": 1782908431558,
+    "timestamp": 1782912010873,
     "total_versions": 1,
     "versions": [
       {
@@ -67,7 +98,7 @@
     ],
     "package_name": "io.github.anggaconni.globalscript",
     "category": "PWA Application",
-    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782908438141.png",
+    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1782912016970.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -76,7 +107,7 @@
     "sha256": "baf8ffca4e2d5eab28c8309ffb5742f61f0ed1796a2b9d89078196070575c14b",
     "min_sdk": 23,
     "update_date": "Jul 1, 2026",
-    "timestamp": 1782908431551,
+    "timestamp": 1782912010865,
     "total_versions": 1,
     "versions": [
       {
@@ -98,7 +129,7 @@
     ],
     "package_name": "id.anggasaputra.gizikita.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782908438005.png",
+    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1782912016850.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -107,7 +138,7 @@
     "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
     "min_sdk": 23,
     "update_date": "Jul 1, 2026",
-    "timestamp": 1782908431545,
+    "timestamp": 1782912010859,
     "total_versions": 1,
     "versions": [
       {
