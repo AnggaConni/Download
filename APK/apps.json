@@ -1,11 +1,42 @@
 [
   {
     "app_name": [
+      "Pocket Science Lab"
+    ],
+    "package_name": "io.github.anggaconni.ScienceHUB.twa",
+    "category": "PWA Application",
+    "icon_path": "APK/icons/io.github.anggaconni.ScienceHUB.twa_1.0.0.0_1788964670273.png",
+    "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
+    "screenshots": [],
+    "version": "1.0.0.0",
+    "download_path": "APK/Pocket Science Lab.apk",
+    "size_mb": "2.71",
+    "sha256": "682639f042d9e9ce6094001e9e6f753a93fc99a06adf83fe5ee98de8a1f202ec",
+    "min_sdk": 23,
+    "update_date": "Sep 9, 2026",
+    "timestamp": 1788964663789,
+    "total_versions": 1,
+    "versions": [
+      {
+        "version": "1.0.0.0",
+        "file_name": "Pocket Science Lab.apk",
+        "download_path": "APK/Pocket Science Lab.apk",
+        "size_mb": "2.71",
+        "update_date": "Sep 9, 2026",
+        "sha256": "682639f042d9e9ce6094001e9e6f753a93fc99a06adf83fe5ee98de8a1f202ec",
+        "min_sdk": 23,
+        "release_notes": "",
+        "screenshots": []
+      }
+    ]
+  },
+  {
+    "app_name": [
       "PesisirKita - Sistem Operasi Lapangan"
     ],
     "package_name": "io.github.anggaconni.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1788919038067.png",
+    "icon_path": "APK/icons/io.github.anggaconni.twa_3_1788964670201.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "3",
@@ -14,7 +45,7 @@
     "sha256": "62d24c782135763059127e40a4777165c39bcf3768488e4694121b7915356548",
     "min_sdk": 21,
     "update_date": "Sep 9, 2026",
-    "timestamp": 1788919030923,
+    "timestamp": 1788964663782,
     "total_versions": 1,
     "versions": [
       {
@@ -36,7 +67,7 @@
     ],
     "package_name": "id.anggasaputra.pantauiklim.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/id.anggasaputra.pantauiklim.twa_1.0.0.0_1788919037983.png",
+    "icon_path": "APK/icons/id.anggasaputra.pantauiklim.twa_1.0.0.0_1788964670119.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -45,7 +76,7 @@
     "sha256": "263f4cd32e1528a61dfccf673872f38fdcca837f3c34f57824553f8abd1a0a33",
     "min_sdk": 23,
     "update_date": "Sep 9, 2026",
-    "timestamp": 1788919030917,
+    "timestamp": 1788964663776,
     "total_versions": 1,
     "versions": [
       {
@@ -67,7 +98,7 @@
     ],
     "package_name": "id.anggasaputra.ourheritage.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1788919037893.png",
+    "icon_path": "APK/icons/id.anggasaputra.ourheritage.twa_1.0.0.0_1788964670035.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -76,7 +107,7 @@
     "sha256": "73051028a103f9d6fc8cdfbfd19187a2c62e09d50ba0337089a8c2b07085481b",
     "min_sdk": 23,
     "update_date": "Sep 9, 2026",
-    "timestamp": 1788919030909,
+    "timestamp": 1788964663768,
     "total_versions": 1,
     "versions": [
       {
@@ -98,7 +129,7 @@
     ],
     "package_name": "io.github.anggaconni.HazeGuard.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/io.github.anggaconni.HazeGuard.twa_1.0.0.0_1788919037804.png",
+    "icon_path": "APK/icons/io.github.anggaconni.HazeGuard.twa_1.0.0.0_1788964669953.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -107,7 +138,7 @@
     "sha256": "3e718da4a4e7270ada3afdca6698db24dd5da178b42fe4d7bd032041a8293be3",
     "min_sdk": 23,
     "update_date": "Sep 9, 2026",
-    "timestamp": 1788919030901,
+    "timestamp": 1788964663761,
     "total_versions": 1,
     "versions": [
       {
@@ -129,7 +160,7 @@
     ],
     "package_name": "io.github.anggaconni.globalscript",
     "category": "PWA Application",
-    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1788919037699.png",
+    "icon_path": "APK/icons/io.github.anggaconni.globalscript_1.0.0.0_1788964669850.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -138,7 +169,7 @@
     "sha256": "baf8ffca4e2d5eab28c8309ffb5742f61f0ed1796a2b9d89078196070575c14b",
     "min_sdk": 23,
     "update_date": "Sep 9, 2026",
-    "timestamp": 1788919030893,
+    "timestamp": 1788964663752,
     "total_versions": 1,
     "versions": [
       {
@@ -160,7 +191,7 @@
     ],
     "package_name": "id.anggasaputra.gizikita.twa",
     "category": "PWA Application",
-    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1788919037570.png",
+    "icon_path": "APK/icons/id.anggasaputra.gizikita.twa_1.0.0.0_1788964669729.png",
     "description": "Tidak ada deskripsi tersedia untuk aplikasi ini.",
     "screenshots": [],
     "version": "1.0.0.0",
@@ -169,7 +200,7 @@
     "sha256": "289856cdb5d586d1b5bb50bcbcbe793be8a8ba1a1fbb82e2059312883c3b6a34",
     "min_sdk": 23,
     "update_date": "Sep 9, 2026",
-    "timestamp": 1788919030887,
+    "timestamp": 1788964663747,
     "total_versions": 1,
     "versions": [
       {
