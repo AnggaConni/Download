@@ -3,5 +3,6 @@
   "id.anggasaputra.pantauiklim.twa": "A lightweight Impact-Based Forecasting (IBF) decision-support platform integrating satellite telemetry, weather forecasts, and community vulnerability data to enable anticipatory action for agriculture and food security.",
   "id.anggasaputra.ourheritage.twa": "A Disaster Risk Reduction (DRR) and Early Warning System (EWS) for cultural heritage, integrating NASA FIRMS and other geospatial data to help protect World Heritage sites, museums, and historic assets from natural hazards.",
   "io.github.anggaconni.globalscript": "An interactive handwriting application supporting global and indigenous writing systems, promoting accessible learning and the preservation of underrepresented scripts such as Javanese, Bugis, and Balinese.",
-  "id.anggasaputra.gizikita.twa": "An offline decision-support application that helps families and community health workers plan affordable, nutritionally balanced meals using local food prices and evidence-based nutrition recommendations."
+  "id.anggasaputra.gizikita.twa": "An offline decision-support application that helps families and community health workers plan affordable, nutritionally balanced meals using local food prices and evidence-based nutrition recommendations.",
+  "io.github.anggaconni.HazeGuard.twa": "An Impact-Based Early Warning System (IBEWS) decision-support platform integrating NASA FIRMS satellite telemetry, air quality forecasts, and community vulnerability data to monitor wildfire smoke, peatland haze, and Acute Respiratory Infection (ARI/ISPA) risks."
 }
